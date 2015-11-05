@@ -1,6 +1,6 @@
 <html>
  <head>
-  <title>PHP Test</title>
+  <title>Pierwsze zdanie losowej powieśi z wolnych lektur - beta</title>
  </head>
  <body>
 <div>
