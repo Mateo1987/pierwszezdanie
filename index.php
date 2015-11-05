@@ -25,7 +25,7 @@
     $sentence = $chosen_book->powiesc->akap[0];
     echo "<p>Pierwsze zdanie:$sentence</p>";
     echo "<p>autor:$author</p>";
-    echo "<p>tytuł:$title</p>";/*
+    echo "<p>tytuł:$title</p>";
    
 ?>
 </div>
