@@ -16,7 +16,7 @@
     $books = json_decode($json);
     
     // wybieramy tylko powieści, bo są jeszcze dzieła graficzne a i z wierszy niekoniecznie da się ładne pierwsze zdanie wybrać
-    //FIXME do poszerzenia o inne rodzaje podobne do powieści, np. nowela
+    //FIXME do poszerzenia o inne rodzaje podobne do powieści, np. nowela, uwaga bo inna struktura xml
     $novels = [];
     foreach ($books as $book) {
         if ($book->genre == "Powieść") {
@@ -33,7 +33,7 @@
     // adres strony www powieści na wolnych lekturach
     echo $normal_url;
     
-    // tu parsujemy adres xhml ze strony www powieści
+    // tu parsujemy adres xml ze strony www powieści
     $html = file_get_html($normal_url);
     $links_div = $html->find('div.other-tools ul li a[href*=xml]');
 
@@ -43,15 +43,15 @@
     $xml_final = "http://wolnelektury.pl$xml_relative";
     
     // tutaj już pracujemy na pliku xml
-    // FIXME - wyjątki do obsłużenia: gdy powieść ma części (jak /potop)
+    // FIXME - wyjątki do obsłużenia: gdy powieść ma części (jak /potop), czasem w xml jest tag <opowiadanie> zamiast <powiesc>
     $chosen_book = simplexml_load_file($xml_final);
     $author = $chosen_book->powiesc->autor_utworu;
     $title = $chosen_book->powiesc->nazwa_utworu;
     $akap = $chosen_book->powiesc->akap[0];
-
     echo "<p>Pierwsze zdanie:$akap</p>";
     echo "<p>autor:$author</p>";
     echo "<p>tytuł:$title</p>";
+    echo "<p>img:$img</p>";
    
 ?>
 </div>
