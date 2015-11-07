@@ -44,6 +44,7 @@
     
     // tutaj już pracujemy na pliku xml
     // FIXME - wyjątki do obsłużenia: gdy powieść ma części (jak /potop), czasem w xml jest tag <opowiadanie> zamiast <powiesc>
+    // FIXME - jak dostać tag dc:relation.coverImage.url (okładkę)
     $chosen_book = simplexml_load_file($xml_final);
     $author = $chosen_book->powiesc->autor_utworu;
     $title = $chosen_book->powiesc->nazwa_utworu;
