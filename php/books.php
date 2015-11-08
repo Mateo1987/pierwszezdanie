@@ -1,11 +1,12 @@
 <?php 
+    include('simple_html_dom.php');
 	/*plik json dostarczony przez api wolnychlektur pobrany lokalnie, bo bardzo duży
     https://wolnelektury.pl/api/books/
     FIXME albo trzeba znaleźć sposób, by jednak parsować ten plik online albo wdrożyć mechanikę jego odświeżania co jakiś czas*/
     $json = file_get_contents("./json/books.json");
     $books = json_decode($json);
     $novels = [];
-    // The code below creates the class Book
+    //Obiekt książka do dodawania do array novels
         class Book {
             // Creating some properties (variables tied to an object)
             public $title;
@@ -35,10 +36,30 @@
     }
     // wybieramy losową powieść
     $random_book = rand(0,count($novels));
-    $chosenBook = $novels[$random_book]->url;
+    $chosen_book = $novels[$random_book];
+
+    //autora, tytuł bierzemy z obiektu wylosowanej książki
+    $author = $chosen_book->author;
+    $title = $chosen_book->title;
+    // echo var_dump($chosen_book);    
+    //adres pliku xml parsujemy ze strony html książki
+    $html = file_get_html($chosen_book->bookUrl);
+    $links_div = $html->find('div.other-tools ul li a[href*=xml]');
+    // zmieniam array na string, bo łatwiej znaleźć
+    $comma_separated = implode(",", $links_div);
+    $xml_relative = substr($comma_separated,9,-26);
+    $xml_final = "http://wolnelektury.pl$xml_relative";
+    
+    // tutaj już pracujemy na pliku xml
+    // FIXME - wyjątki do obsłużenia: gdy powieść ma części (jak /potop), czasem w xml jest tag <opowiadanie> zamiast <powiesc>
+    $chosen_book_xml = simplexml_load_file($xml_final);
+    $akap = $chosen_book_xml->powiesc->akap[0];
 
 
-
+    // tu ładujemy całą książke xml w stronę. 
+    // echo $xmlDoc->saveXML()ujawnia tę wartość w index.php
+    // w niewidocznym divie. Z niego jQuery wyciągamy adres obrazka i credits obrazka
 	$xmlDoc = new DOMDocument();
-	$xmlDoc->load($chosenBook);
+    $xmlDoc->load($xml_final);
+    echo $xmlDoc->saveXML();
  ?>
