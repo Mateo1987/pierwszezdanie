@@ -1,7 +1,15 @@
+body {
+	height: 100%vh;
+	width: 80%;
+	margin: auto;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	color: white;
+	text-shadow: 2px 2px 4px #000;
+}
+
 .invisible {
 	display:none;
-}
-.background-canvas{
-	width: 500px;
-	height: 700px;
 }

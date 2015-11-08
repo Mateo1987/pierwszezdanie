@@ -15,7 +15,6 @@
     echo "<h2 class='title'>$title</h2>";
     echo "<h3 class='author'>$author</h2>";
 ?> 
-<div class='canvas_background'></div>
-<p class='photo_credits'></p>
+<p class='photo_credits'>Ilustracja tła: </p>
 </body>
 </html>
