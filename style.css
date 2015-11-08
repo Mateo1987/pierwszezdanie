@@ -1,7 +1,3 @@
 .invisible {
 	display:none;
 }
-.visible {
-	display:block;
-	border: 1px solid black;
-}
