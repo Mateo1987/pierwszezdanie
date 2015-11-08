@@ -2,7 +2,7 @@
 	/*plik json dostarczony przez api wolnychlektur pobrany lokalnie, bo bardzo duży
     https://wolnelektury.pl/api/books/
     FIXME albo trzeba znaleźć sposób, by jednak parsować ten plik online albo wdrożyć mechanikę jego odświeżania co jakiś czas*/
-    $json = file_get_contents("../json/books.json");
+    $json = file_get_contents("./json/books.json");
     $books = json_decode($json);
     $novels = [];
     // The code below creates the class Book
@@ -34,13 +34,11 @@
         }
     }
     // wybieramy losową powieść
-    $random_book = rand(0,count($novels)); 
-    // echo var_dump($novels[$random_book]->href);
-    //ładujemy json tej powieści
-    $bookJson = file_get_contents($novels[$random_book]->href);
-    $chosenBook = json_decode($bookJson);
-    echo var_dump($chosenBook);
+    $random_book = rand(0,count($novels));
+    $chosenBook = $novels[$random_book]->url;
 
-	// $xmlDoc = new DOMDocument();
-	// $xmlDoc->load($bookxml);
+
+
+	$xmlDoc = new DOMDocument();
+	$xmlDoc->load($chosenBook);
  ?>

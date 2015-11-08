@@ -7,13 +7,13 @@
  </head>
  <body>
 <div class="invisible">
- <?php
-include ("php/books.php")
-echo $xmlDoc->saveXML();
-?>
+	<?php
+		include ("php/books.php");
+		echo $xmlDoc->saveXML();
+	?>
 </div>
-<div>
+<div class="tutaj">
 
 </div>
 </body>
-</html
+</html>
