@@ -1,6 +1,6 @@
 $(document).ready(function() {
     // wybieramy książkę
-    $.getJSON( "http://wolnelektury.pl/api/books/" )
+    $.getJSON( "./json/books.json" )
       .done(function( json ) {
         console.log( "JSON Data: " + json.title );
       })

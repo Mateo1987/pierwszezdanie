@@ -8,15 +8,12 @@
  <body>
 <div class="invisible">
  <?php
-$xmlDoc = new DOMDocument();
-$xmlDoc->load("http://wolnelektury.pl/media/book/xml/20-000-mil-podmorskiej-zeglugi.xml");
-
+include ("php/books.php")
 echo $xmlDoc->saveXML();
 ?>
 </div>
 <div>
-A tu widać:
-<p id="tutaj"></p>
+
 </div>
 </body>
 </html
