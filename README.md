@@ -21,6 +21,7 @@ TODO
 - stały adres każdego cytatu, by dało się do niego linkować
 - opcja zmiany tła na inne(własne?)
 - wyszukiwanie książek po tytule
+- odświeżanie lokalnej kopii books.json lub sposób na szybsze jego parsowanie online
 
 API WOLNYCYH LEKTUR
 Strona powstała dzięki API Wolnych Lektur.
