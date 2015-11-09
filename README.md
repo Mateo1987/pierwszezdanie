@@ -1,4 +1,4 @@
-# pierwszezdanie
+# PierwszeZdanie
 Prosta stronka prezentująca pierwsze zdanie z losowej powieści z wolnych lektur
 http://hadora.pl/pierwszezdanie
 
@@ -21,7 +21,6 @@ TODO
 - stały adres każdego cytatu, by dało się do niego linkować
 - opcja zmiany tła na inne(własne?)
 - wyszukiwanie książek po tytule
-- 
 
 API WOLNYCYH LEKTUR
 Strona powstała dzięki API Wolnych Lektur.
