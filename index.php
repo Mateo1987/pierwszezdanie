@@ -11,7 +11,7 @@
 <?php include 'php/books.php'; ?>
 </div>
 <?php 
-    echo "<h1 class='paragrpah'>$akap</h1>";
+    echo "<h1 class='paragrpah'>$sentence</h1>";
     echo "<h2 class='title'>$title</h2>";
     echo "<h3 class='author'>$author</h2>";
 ?> 

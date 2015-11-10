@@ -56,6 +56,7 @@
     $chosen_book_xml = simplexml_load_file($xml_final);
     // TODO teraz jest pierwszy paragraf, ma być pierwsze zdanie
     $akap = $chosen_book_xml->powiesc->akap[0];
+    $sentence = strstr($akap, '.', true).".";
 
 
     // tu ładujemy całą książke xml w stronę. 
