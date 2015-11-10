@@ -1,4 +1,6 @@
 # PierwszeZdanie
+Na tę chwilę work in progress/proof of concept :)
+
 Prosta stronka prezentująca pierwsze zdanie z losowej powieści z wolnych lektur
 http://hadora.pl/pierwszezdanie
 
