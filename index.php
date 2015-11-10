@@ -7,15 +7,24 @@
   <script type="text/javascript" src="scripts/scripts.js"></script>
 </head>
 <body>
-<div class="invisible">
+
 <?php include 'php/books.php'; ?>
-</div>
+
 <?php 
     echo "<h1 class='paragrpah'>$sentence</h1>";
     echo "<h2 class='title'>$title</h2>";
     echo "<h3 class='author'>$author</h2>";
 ?> 
+
 <p class='photo_credits'>Ilustracja tła: </p>
+
+<div class="invisible">
+	<?php echo $xmlDoc->saveXML() ?>
+</div>
+
+
+
+
 <!-- Google Analytics -->
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

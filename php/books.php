@@ -67,5 +67,4 @@
     // w niewidocznym divie. Z niego jQuery wyciągamy adres obrazka i credits obrazka
 	$xmlDoc = new DOMDocument();
     $xmlDoc->load($xml_final);
-    echo $xmlDoc->saveXML();
  ?>

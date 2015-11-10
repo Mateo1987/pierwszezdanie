@@ -12,4 +12,6 @@ body {
 
 .invisible {
 	display:none;
+	position:relative;
+	top:3000px;
 }
