@@ -52,10 +52,13 @@
     
     // tutaj już pracujemy na pliku xml
     // FIXME - wyjątki do obsłużenia: gdy powieść ma części (jak /potop),
-    // czasem w xml jest tag <opowiadanie> zamiast <powiesc>
+    // nietypowa struktura xml, np Eugenia Grandet
     $chosen_book_xml = simplexml_load_file($xml_final);
     // TODO teraz jest pierwszy paragraf, ma być pierwsze zdanie
     $akap = $chosen_book_xml->powiesc->akap[0];
+    if (strlen($akap)==0){
+        $akap = $chosen_book_xml->opowiadanie->akap;
+    }
     $sentence = strstr($akap, '.', true).".";
 
 
