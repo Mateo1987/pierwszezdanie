@@ -5,7 +5,7 @@ $(document).ready(function() {
 
     var cover = $('dc\\:relation\\.coverImage\\.url').text();
     var credits = $('dc\\:relation\\.coverImage\\.attribution').text();
-    var backgroundCss = "url('"+cover+"')";
-    $('body').css("background-image",backgroundCss);
+    $('#canvas_background').attr("src",cover);
     $('.photo_credits').append(credits);
+ 
 });
