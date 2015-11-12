@@ -12,7 +12,7 @@ $(document).ready(function() {
     var context = canvas.getContext('2d');
     var imageObj = new Image();
     // wolnelektury chyba zablokowały możliwość pobierania obrazków od nich.
-    //TODO użyć api flickr
+    //TODO użyć api flickr lub pobieać obrazki php (może to znów same origin?)
     imageObj.onload = function() {
     	context.drawImage(imageObj, 0, 0);
     	console.log(imageObj.width);
@@ -21,4 +21,5 @@ $(document).ready(function() {
     	console.log("no");
     }
     imageObj.src = cover;
+
 });
