@@ -3,7 +3,7 @@ $(document).ready(function() {
 	do niewidocznego div xml ksiazki
 	znaki \\ sluza do ucieczki przed dwukropkie i kropka*/
 
-    var cover = 'http://lorempixel.com/1000/600';
+    var cover = 'http://lorempixel.com/1000/600/nature';
     var credits = $('dc\\:relation\\.coverImage\\.attribution').text();
     $('.photo_credits').append(credits);
     var canvas = document.getElementById('main-canvas');
