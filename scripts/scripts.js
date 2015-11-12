@@ -22,4 +22,12 @@ $(document).ready(function() {
     }
     imageObj.src = cover;
 
+    var client = new XMLHttpRequest();
+	client.open("GET", cover, true);
+	client.send();
+	client.onreadystatechange = function() {
+  	if(this.readyState == this.HEADERS_RECEIVED) {
+    	console.log(this.getAllResponseHeaders());
+  	}
+	}
 });
