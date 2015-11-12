@@ -60,7 +60,7 @@
     }
     $sentence = strstr($akap, '.', true).".";
 
-
+  
     // tu ładujemy całą książke xml w stronę. 
     // echo $xmlDoc->saveXML()ujawnia tę wartość w index.php
     // w niewidocznym divie. Z niego jQuery wyciągamy adres obrazka i credits obrazka
