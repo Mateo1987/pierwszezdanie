@@ -5,7 +5,27 @@ $(document).ready(function() {
 
     var cover = $('dc\\:relation\\.coverImage\\.url').text();
     var credits = $('dc\\:relation\\.coverImage\\.attribution').text();
-    $('#canvas_background').attr("src",cover);
+    // var background = 'url("'+cover+'")';
+    // $('canvas').css("background-image",background);
     $('.photo_credits').append(credits);
+    var canvas = document.getElementById('main-canvas');
+    var context = canvas.getContext('2d');
+    var imageObj = new Image();
+    // wolnelektury chyba zablokowały możliwość pobierania obrazków od nich.
+    //TODO użyć api flickr
+    imageObj.onload = function() {
+    	context.drawImage(imageObj, 0, 0);
+    	console.log(imageObj.width);
+    };
+    imageObj.onerror = function() {
+    	console.log("no");
+    }
+    imageObj.src = cover;
+
+    var req = new XMLHttpRequest();
+	req.open('GET', cover, false);
+	req.send(null);
+	var headers = req.getAllResponseHeaders().toLowerCase();
+	alert(headers);
  
 });

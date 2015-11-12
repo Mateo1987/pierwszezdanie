@@ -2,7 +2,7 @@
 Na tę chwilę work in progress/proof of concept :)
 
 Prosta stronka prezentująca pierwsze zdanie z losowej powieści z wolnych lektur
-http://hadora.pl/pierwszezdanie
+http://pierwszezdanie.pl
 
 PHP zupełnie podstawowe - do ulepszenia.
 
@@ -29,7 +29,10 @@ API WOLNYCYH LEKTUR
 Strona powstała dzięki API Wolnych Lektur.
 http://wolnelektury.pl/api
 
-Szkoda, że w json w obiekcie danej książki nie ma adresu xml. Początkowo próbowałem generować adres pliku xml przez analogię do adresu url książki, ale okazuje się, że nie zawsze są analogiczne. 
+Szkoda, że w json w obiekcie danej książki nie ma adresu xml. Początkowo próbowałem generować adres pliku xml przez analogię do adresu url książki, ale okazuje się, że nie zawsze są analogiczne.
+
+Wydaje się, ze wolnelektury blokują pobieranie hostowanych przez nich obrazków. 
+TODO - wykorzystać api Flickr lub podonego serwisu.
 
 Pamiętaj, by korzystać i wspierać wolnelektury!
 https://wolnelektury.pl/

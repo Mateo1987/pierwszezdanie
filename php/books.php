@@ -5,7 +5,7 @@
     FIXME albo trzeba znaleźć sposób, by jednak parsować ten plik online albo wdrożyć mechanikę jego odświeżania co jakiś czas*/
     $json = file_get_contents("./json/books.json");
     $books = json_decode($json);
-    $novels = [];
+    $novels = array();
     //Obiekt książka do dodawania do array novels
         class Book {
             // Creating some properties (variables tied to an object)
