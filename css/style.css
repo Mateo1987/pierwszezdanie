@@ -1,14 +1,14 @@
 * {
     box-sizing: border-box;
 }
-html {
+html,
+body {
     height:100%;
 }
 img {
     display:block;
 }
 body {
-	margin: auto;
 	background-color: #F0C808;
 	color: white;
 	text-shadow: 2px 2px 4px #000;
@@ -37,6 +37,11 @@ canvas {
 	background-size: cover;
 	margin: 20px auto;
 	border: 2px solid #2176FF;
+}
+.sentence,
+.more{
+	width:800px;
+	margin: auto;
 }
 h1 {
 	font-size: 2em;

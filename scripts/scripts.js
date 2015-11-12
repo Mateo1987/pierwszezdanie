@@ -21,11 +21,4 @@ $(document).ready(function() {
     	console.log("no");
     }
     imageObj.src = cover;
-
-    var req = new XMLHttpRequest();
-	req.open('GET', cover, false);
-	req.send(null);
-	var headers = req.getAllResponseHeaders().toLowerCase();
-	alert(headers);
- 
 });

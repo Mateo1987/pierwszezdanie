@@ -14,13 +14,14 @@
 </header>
 <canvas id="main-canvas" width="1000" height="600">
 </canvas>
-<?php 
-    echo "<h1 class='paragrpah'>$sentence</h1>";
-    echo "<h2 class='title'>$title</h2>";
-    echo "<h3 class='author'>$author</h2>";
-?> 
-<p class='photo_credits'>Ilustracja tła: </p>
-
+<div class = "sentence">
+	<?php 
+	    echo "<h1 class='paragrpah'>$sentence</h1>";
+	    echo "<h2 class='title'>$title</h2>";
+	    echo "<h3 class='author'>$author</h2>";
+	?> 
+	<p class='photo_credits'>Ilustracja tła: </p>
+</div>
 <div class="options">
 </div>
 <div class="social">
