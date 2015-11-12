@@ -54,7 +54,6 @@
     // FIXME - wyjątki do obsłużenia: gdy powieść ma części (jak /potop),
     // nietypowa struktura xml, np Eugenia Grandet
     $chosen_book_xml = simplexml_load_file($xml_final);
-    // TODO teraz jest pierwszy paragraf, ma być pierwsze zdanie
     $akap = $chosen_book_xml->powiesc->akap[0];
     if (strlen($akap)==0){
         $akap = $chosen_book_xml->opowiadanie->akap;
@@ -65,6 +64,7 @@
     // tu ładujemy całą książke xml w stronę. 
     // echo $xmlDoc->saveXML()ujawnia tę wartość w index.php
     // w niewidocznym divie. Z niego jQuery wyciągamy adres obrazka i credits obrazka
+    // FIXME - wszystkie dane wyciągać z xml php
 	$xmlDoc = new DOMDocument();
     $xmlDoc->load($xml_final);
  ?>
