@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/style.css">
   <?php include 'php/books.php'; ?>
+  <script src="bower_components/canvas-text-wrapper/canvas-text-wrapper.min.js"></script>
   <script type="text/javascript">
   	<?php 
 	    echo "var sentence = '$sentence';";

@@ -42,7 +42,7 @@ $(document).ready(function() {
     var x = (canvas.width - maxWidth) / 2;
     var y = 60;
     console.log(x);
-    context.font = '14pt Arial';
+    context.font = '16pt Arial';
     
     // context.lineWidth = 3;
     // context.strokeStyle = '#000000';
@@ -50,7 +50,13 @@ $(document).ready(function() {
     	console.log("dzialamy");
 	   	context.drawImage(imageObj, 0, 0);
 	   	context.fillStyle = 'white';
-	   	wrapText(context, sentence, x, y, maxWidth, lineHeight);
+	   	CanvasTextWrapper(canvas, sentence, {
+			textAlign: "center",
+			verticalAlign: "middle",
+			sizeToFill: true,
+			paddingX: 10,
+			paddingY: 30,
+		});
     };
     imageObj.onerror = function() {
     	console.log("no");
