@@ -12,24 +12,24 @@
 <header>
 	<h1>PierwszeZdanie.pl - pierwsze zdanie z losowej powieści z Wolnych Lektur</h1>
 </header>
-<canvas id="main-canvas" width="1000" height="600">
+<canvas id="main-canvas">
 </canvas>
-<div class = "sentence">
+<!-- <div class = "sentence">
 	<?php 
 	    echo "<h1 class='paragrpah'>$sentence</h1>";
-	    echo "<h2 class='title'>$title</h2>";
-	    echo "<h3 class='author'>$author</h2>";
+	    echo "<h2 class='title'>$chosenTitle</h2>";
+	    echo "<h3 class='author'>$chosenAuthor</h2>";
 	?> 
 	<p class='photo_credits'>Ilustracja tła: </p>
-</div>
+</div> -->
 <div class="options">
+	<img class="refresh icon" src = "img/refresh-86.png" height="32" width="32" />
+	<img class="gear icon" src = "img/modify.png" heigth="32" width="32" />
 </div>
 <div class="social">
 </div>
 <div class="more">
-Przeczytaj online, pobierz na komputer lub czytnik na wolnych lekturach:
-<a href="" target="_blank"><img src = ""></a> 
-</div>
+<a href=<?php echo "$chosenUrl"; ?>><img class="icon" src="img/books.png" width="32" height="32">Przeczytaj online, pobierz na komputer lub czytnik na wolnych lekturach.</a>
 <footer>
 
 </footer>

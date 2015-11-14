@@ -13,6 +13,7 @@
             public $author;
             public $bookUrl;
             public $href;
+            public $cover;
             
             // Assigning the values
             public function __construct($title,$author,$bookUrl,$href) {
@@ -20,6 +21,7 @@
               $this->author = $author;
               $this->bookUrl = $bookUrl;
               $this->href = $href;
+              $this->cover = $cover;
             }
           }
 	/*wybieramy tylko powieści, bo są jeszcze dzieła graficzne a i z wierszy niekoniecznie da się ładne pierwsze zdanie wybrać
@@ -30,7 +32,8 @@
         	$newAuthor = $book->author;
         	$newUrl = $book->url;
         	$newHref = $book->href;
-			$newNovel = new Book($newTitle,$newAuthor,$newUrl,$newHref);    
+            $newCover = $book->cover;
+			$newNovel = new Book($newTitle,$newAuthor,$newUrl,$newHref,$newCover);    
             array_push($novels,$newNovel);
         }
     }
@@ -38,9 +41,11 @@
     $random_book = rand(0,count($novels));
     $chosen_book = $novels[$random_book];
 
-    //autora, tytuł bierzemy z obiektu wylosowanej książki
-    $author = $chosen_book->author;
-    $title = $chosen_book->title;
+    //autora, tytuł i okładkę bierzemy z obiektu wylosowanej książki
+    $chosenAuthor = $chosen_book->author;
+    $chosenTitle = $chosen_book->title;
+    $chosenCover = $chosen_book->cover;
+    $chosenUrl = $chosen_book->bookUrl;
     // echo var_dump($chosen_book);    
     //adres pliku xml parsujemy ze strony html książki
     $html = file_get_html($chosen_book->bookUrl);
