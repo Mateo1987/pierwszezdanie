@@ -58,11 +58,6 @@ a:hover .icon,
 	width:800px;
 	margin: auto;
 }
-.sentence{
-	position: absolute;
-	top:320px;
-	margin-bottom: -30px;
-}
 .options {
 	width: 800px;
 	margin: auto;
@@ -76,6 +71,7 @@ a:hover .icon,
 .more {
 	line-height:2em;
 	margin: 20px auto;
+	font-weight: bold;
 }
 .more img {
 	float:left;
