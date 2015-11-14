@@ -1,6 +1,6 @@
 <?php 
     include('simple_html_dom.php');
-	/*plik json dostarczony przez api wolnychlektur pobrany lokalnie, bo bardzo duży
+    /*plik json dostarczony przez api wolnychlektur pobrany lokalnie, bo bardzo duży
     https://wolnelektury.pl/api/books/
     FIXME albo trzeba znaleźć sposób, by jednak parsować ten plik online albo wdrożyć mechanikę jego odświeżania co jakiś czas*/
     $json = file_get_contents("./json/books.json");
@@ -70,6 +70,6 @@
     // echo $xmlDoc->saveXML()ujawnia tę wartość w index.php
     // w niewidocznym divie. Z niego jQuery wyciągamy adres obrazka i credits obrazka
     // FIXME - wszystkie dane wyciągać z xml php
-	$xmlDoc = new DOMDocument();
+    $xmlDoc = new DOMDocument();
     $xmlDoc->load($xml_final);
  ?>
