@@ -14,6 +14,8 @@ $(document).ready(function() {
     //TODO użyć api flickr lub pobieać obrazki php (może to znów same origin?)
     imageObj.onload = function() {
     	context.drawImage(imageObj, 0, 0);
+    	context.font = 'italic 30pt Calibri';
+      	context.fillText(author, 0, 100);
     	console.log(imageObj.width);
     };
     imageObj.onerror = function() {
