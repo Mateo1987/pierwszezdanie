@@ -14,28 +14,6 @@ $(document).ready(function() {
     //chwilowo używam lorempixel
     //TODO użyć api flickr lub pobieać obrazki php (może to znów same origin?)
 
-   	//function to wrap text within canvas depending on the text length
-
-    function wrapText(context, text, x, y, maxWidth, lineHeight) {
-        var words = text.split(' ');
-        var line = '';
-
-        for(var n = 0; n < words.length; n++) {
-          var testLine = line + words[n] + ' ';
-          var metrics = context.measureText(testLine);
-          var testWidth = metrics.width;
-          if (testWidth > maxWidth && n > 0) {
-             context.fillText(line, x, y);
-             line = words[n] + ' ';
-             y += lineHeight;
-          }
-          else {
-        	line = testLine;
-          }
-        }
-      	context.fillText(line, x, y);
-  	}
-
     imageObj.src = cover;
     var maxWidth = canvas.width*0.8;
     var lineHeight = 25;
