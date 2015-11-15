@@ -41,5 +41,7 @@ $(document).ready(function() {
 	context.strokeStyle = "black";
 	context.fillStyle = 'white';
 	
-
+	$('.refresh').click(function(){
+		location.reload();
+	});
 });
