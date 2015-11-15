@@ -15,12 +15,12 @@ $(document).ready(function() {
     //TODO użyć api flickr lub pobieać obrazki php (może to znów same origin?)
 
     imageObj.src = cover;
-    var maxWidth = canvas.width*0.8;
+    /*var maxWidth = canvas.width*0.8;
     var lineHeight = 25;
     var x = (canvas.width - maxWidth) / 2;
     var y = 60;
     console.log(x);
-    context.font = '16pt Arial';
+    context.font = '16pt Arial';*/
     
     // context.lineWidth = 3;
     // context.strokeStyle = '#000000';
