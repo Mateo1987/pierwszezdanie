@@ -70,6 +70,6 @@
     // echo $xmlDoc->saveXML()ujawnia tę wartość w index.php
     // w niewidocznym divie. Z niego jQuery wyciągamy adres obrazka i credits obrazka
     // FIXME - wszystkie dane wyciągać z xml php
-    $xmlDoc = new DOMDocument();
-    $xmlDoc->load($xml_final);
+   /* $xmlDoc = new DOMDocument();
+    $xmlDoc->load($xml_final);*/
  ?>
