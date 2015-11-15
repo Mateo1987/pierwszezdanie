@@ -1,13 +1,32 @@
 $(document).ready(function() {
 	var book_credits = title + ", "+author;
+	
 	// tymczasowo wrzucona na sztywno okładka
 	var image_credits = "Obrazek tła: davebloggs007@Flickr CC BY 2.0"
 	var canvas = document.getElementById("main-canvas");
 	var imageObj = new Image();
+	var finalSentence = '';
+	console.log(sentence);
 
+	// sprawdzamy, czy zdanie nie jest puste
+	var notEmpty = function(sntc){
+		if (sntc.length<4){
+			console.log('odswiezamy');
+			location.reload();
+		}
+	}
+	notEmpty(sentence);
+
+	// zamieniamy długie myślniki na krótki
+	var dash = function(sntc){
+		finalSentence = sntc.replace("---","-");
+	}
+	dash(sentence);
+
+	// rysujemy canvas
 	imageObj.onload = function() {
 		context.drawImage(imageObj, 0, 0);
-		CanvasTextWrapper(canvas, sentence,{
+		CanvasTextWrapper(canvas, finalSentence,{
 			textAlign: "center",
 			font: "40pt Arial",
 			lineHeight: 3,
@@ -40,7 +59,7 @@ $(document).ready(function() {
 	context.lineWidth = 1;
 	context.strokeStyle = "black";
 	context.fillStyle = 'white';
-	
+	// przycisk odśwież
 	$('.refresh').click(function(){
 		location.reload();
 	});
