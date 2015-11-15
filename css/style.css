@@ -67,6 +67,10 @@ a:hover .icon,
 	/*tymczasowo ukrywamy*/
 	display:none;
 }
+.refresh:hover,
+.gear:hover {
+	cursor:pointer;
+}
 .refresh {
 	margin-left: 45%;
 }
