@@ -64,6 +64,8 @@ a:hover .icon,
 }
 .gear {
 	float:right;
+	/*tymczasowo ukrywamy*/
+	display:none;
 }
 .refresh {
 	margin-left: 45%;
