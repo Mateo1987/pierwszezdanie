@@ -16,6 +16,7 @@ $(document).ready(function() {
 	var canvas = document.getElementById("main-canvas");
 	var imageObj = new Image();
 	var finalSentence = '';
+	var us = "pierwszezdanie.pl";
 	console.log(sentence);
 
 	// zamieniamy długie myślniki na krótki
@@ -44,6 +45,14 @@ $(document).ready(function() {
 		});
 		CanvasTextWrapper(canvas, image_credits,{
 			textAlign: "left",
+			font: "italic 10pt Arial",
+			lineHeight: 3,
+			verticalAlign: "bottom",
+			paddingX: 50,
+			paddingY: 5
+		});
+		CanvasTextWrapper(canvas, us,{
+			textAlign: "right",
 			font: "italic 10pt Arial",
 			lineHeight: 3,
 			verticalAlign: "bottom",
