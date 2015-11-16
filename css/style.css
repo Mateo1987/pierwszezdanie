@@ -91,6 +91,9 @@ a:hover .icon,
 	text-align: center;
 	line-height: 60px;
 }
+.options-choice li div:hover {
+	border: 2px solid white;
+}
 .picture div {
 	background-image: url("../img/pic.png");
 	background-size:cover;
@@ -99,6 +102,9 @@ a:hover .icon,
 .white div {
 	background-color: white;
 	color:black;
+}
+li.white div:hover {
+	border: 2px solid black;
 }
 .black div {
 	background-color: black;
