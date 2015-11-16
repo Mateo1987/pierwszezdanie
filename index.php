@@ -2,6 +2,7 @@
 <head>
   <meta charset="utf-8">
   <title>Pierwsze zdanie losowej powieśi z wolnych lektur - beta</title>
+  <link href='https://fonts.googleapis.com/css?family=Arvo:400,700,700italic,400italic' rel='stylesheet' type='text/css'>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/style.css">

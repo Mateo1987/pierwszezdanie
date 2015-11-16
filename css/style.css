@@ -1,11 +1,9 @@
 * {
     box-sizing: border-box;
 }
-/*img {
-    display:block;
-}*/
 body {
 	background-color: #F0C808;
+	font-family: 'Arvo', serif;
 	color: white;
 	text-shadow: 2px 2px 4px #000;
 	height:100%;

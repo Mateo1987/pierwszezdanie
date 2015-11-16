@@ -1,11 +1,13 @@
 <?php 
     include('simple_html_dom.php');
+
     /*plik json dostarczony przez api wolnychlektur pobrany lokalnie, bo bardzo duży
     https://wolnelektury.pl/api/books/
     FIXME albo trzeba znaleźć sposób, by jednak parsować ten plik online albo wdrożyć mechanikę jego odświeżania co jakiś czas*/
     $json = file_get_contents("./json/books.json");
     $books = json_decode($json);
     $novels = array();
+
     //Obiekt książka do dodawania do array novels
         class Book {
             // Creating some properties (variables tied to an object)
@@ -24,6 +26,7 @@
               $this->cover = $cover;
             }
           }
+
 	/*wybieramy tylko powieści, bo są jeszcze dzieła graficzne a i z wierszy niekoniecznie da się ładne pierwsze zdanie wybrać
     FIXME do poszerzenia o inne rodzaje podobne do powieści, np. nowela, uwaga bo inna struktura xml*/
     foreach ($books as $book) {
@@ -37,6 +40,7 @@
             array_push($novels,$newNovel);
         }
     }
+
     // wybieramy losową powieść
     $random_book = rand(0,count($novels));
     $chosen_book = $novels[$random_book];
@@ -46,10 +50,11 @@
     $chosenTitle = $chosen_book->title;
     $chosenCover = $chosen_book->cover;
     $chosenUrl = $chosen_book->bookUrl;
-    // echo var_dump($chosen_book);    
+    
     //adres pliku xml parsujemy ze strony html książki
     $html = file_get_html($chosen_book->bookUrl);
     $links_div = $html->find('div.other-tools ul li a[href*=xml]');
+    
     // zmieniam array na string, bo łatwiej znaleźć
     $comma_separated = implode(",", $links_div);
     $xml_relative = substr($comma_separated,9,-26);
@@ -65,11 +70,5 @@
     }
     $sentence = strstr($akap, '.', true).".";
 
-  
-    // tu ładujemy całą książke xml w stronę. 
-    // echo $xmlDoc->saveXML()ujawnia tę wartość w index.php
-    // w niewidocznym divie. Z niego jQuery wyciągamy adres obrazka i credits obrazka
-    // FIXME - wszystkie dane wyciągać z xml php
-   /* $xmlDoc = new DOMDocument();
-    $xmlDoc->load($xml_final);*/
+ 
  ?>

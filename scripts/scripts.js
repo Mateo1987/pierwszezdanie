@@ -29,7 +29,7 @@ $(document).ready(function() {
 	function writeText(){
 		CanvasTextWrapper(canvas, finalSentence,{
 			textAlign: "center",
-			font: "40pt Arial",
+			font: "40pt Arvo",
 			lineHeight: 3,
 			verticalAlign: "middle",
 			strokeText: true,
@@ -38,7 +38,7 @@ $(document).ready(function() {
 		});   
 		CanvasTextWrapper(canvas, book_credits,{
 			textAlign: "left",
-			font: "italic 20pt Arial",
+			font: "italic 20pt Arvo",
 			lineHeight: 3,
 			verticalAlign: "bottom",
 			paddingX: 50,
@@ -46,7 +46,7 @@ $(document).ready(function() {
 		});
 		CanvasTextWrapper(canvas, image_credits,{
 			textAlign: "left",
-			font: "italic 10pt Arial",
+			font: "italic 10pt Arvo",
 			lineHeight: 3,
 			verticalAlign: "bottom",
 			paddingX: 50,
@@ -54,7 +54,7 @@ $(document).ready(function() {
 		});
 		CanvasTextWrapper(canvas, us,{
 			textAlign: "right",
-			font: "italic 10pt Arial",
+			font: "italic 10pt Arvo",
 			lineHeight: 3,
 			verticalAlign: "bottom",
 			paddingX: 50,
