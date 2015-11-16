@@ -87,16 +87,22 @@ a:hover .icon,
 	float: left;
 	margin: 15px 25px;
 	cursor: pointer;
+	font-size: 30px;
+	text-align: center;
+	line-height: 60px;
 }
 .picture div {
 	background-image: url("../img/pic.png");
 	background-size:cover;
+	color:white;
 }
 .white div {
 	background-color: white;
+	color:black;
 }
 .black div {
 	background-color: black;
+	color:white;
 }
 .gear {
 	float:right;

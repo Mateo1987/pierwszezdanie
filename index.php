@@ -27,9 +27,9 @@
 	<div class="gear icon">
 		<img src="img/modify.png" height="32" width="32" />
 		<ul class = "options-choice">
-			<li class="picture"><div></div></li>
-			<li class="white"><div></div></li>
-			<li class="black"><div></div></li>
+			<li class="picture"><div>A</div></li>
+			<li class="white"><div>A</div></li>
+			<li class="black"><div>A</div></li>
 		</ul>
 	</div>
 </div>

@@ -20,7 +20,7 @@ $(document).ready(function() {
 
 	// zamieniamy długie myślniki na krótki
 	var dash = function(sntc){
-		finalSentence = sntc.replace("---","-");
+		finalSentence = sntc.replace(/---/g,"-");
 	}
 	dash(sentence);
 
