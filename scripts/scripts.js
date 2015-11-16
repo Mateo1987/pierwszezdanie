@@ -97,6 +97,7 @@ $(document).ready(function() {
 	})
 	$('.picture div').click(function(){
 		context.drawImage(imageObj, 0, 0);
+		context.fillStyle = "white";
 		writeText();
 	})
 
