@@ -24,9 +24,7 @@ $(document).ready(function() {
 	}
 	dash(sentence);
 
-	// rysujemy canvas
-	imageObj.onload = function() {
-		context.drawImage(imageObj, 0, 0);
+	function writeText(){
 		CanvasTextWrapper(canvas, finalSentence,{
 			textAlign: "center",
 			font: "40pt Arial",
@@ -52,6 +50,12 @@ $(document).ready(function() {
 			paddingX: 50,
 			paddingY: 5
 		});
+	}
+
+	// rysujemy canvas
+	imageObj.onload = function() {
+		context.drawImage(imageObj, 0, 0);
+		writeText();
 	};
 	imageObj.onerror = function() {
 		console.log("image error");
@@ -67,4 +71,5 @@ $(document).ready(function() {
 	$('.refresh').click(function(){
 		location.reload();
 	});
+
 });
