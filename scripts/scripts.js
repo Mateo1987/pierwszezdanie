@@ -1,14 +1,8 @@
 $(document).ready(function() {
 	var book_credits = title + ", "+author;
 	
-	// tymczasowo wrzucona na sztywno okładka
-	var image_credits = "Obrazek tła: davebloggs007@Flickr CC BY 2.0"
-	var canvas = document.getElementById("main-canvas");
-	var imageObj = new Image();
-	var finalSentence = '';
-	console.log(sentence);
-
 	// sprawdzamy, czy zdanie nie jest puste
+	//FIXME dziala, ale najpierw wyświetla stronę z pustym cytatem
 	var notEmpty = function(sntc){
 		if (sntc.length<4){
 			console.log('odswiezamy');
@@ -16,6 +10,13 @@ $(document).ready(function() {
 		}
 	}
 	notEmpty(sentence);
+
+	// tymczasowo wrzucona na sztywno okładka
+	var image_credits = "Obrazek tła: davebloggs007@Flickr CC BY 2.0"
+	var canvas = document.getElementById("main-canvas");
+	var imageObj = new Image();
+	var finalSentence = '';
+	console.log(sentence);
 
 	// zamieniamy długie myślniki na krótki
 	var dash = function(sntc){
@@ -52,6 +53,9 @@ $(document).ready(function() {
 			paddingY: 5
 		});
 	};
+	imageObj.onerror = function() {
+		console.log("image error");
+	}
 	imageObj.src = './img/4689.jpg';
 	canvas.width = 1000;
 	canvas.height = 600;

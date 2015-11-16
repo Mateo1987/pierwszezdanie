@@ -24,7 +24,14 @@
 </canvas>
 <div class="options">
 	<img class="refresh icon" src = "img/refresh-86.png" height="32" width="32" />
-	<img class="gear icon" src = "img/modify.png" heigth="32" width="32" />
+	<div class="gear icon">
+		<img src="img/modify.png" height="32" width="32" />
+		<ul class = "options-choice">
+			<li class="picture"><div></div></li>
+			<li class="white"><div></div></li>
+			<li class="black"><div></div></li>
+		</ul>
+	</div>
 </div>
 <div class="social">
 </div>
