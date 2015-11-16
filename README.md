@@ -6,10 +6,13 @@ http://pierwszezdanie.pl
 
 PHP zupełnie podstawowe - do ulepszenia.
 
+
 TODO
+- PILNE czasami skrypt w ogóle się nie wykonuje - dlaczego?
 - dodanie obsługi innych odpowiednich typów literatury, oprócz powieści
 - w php omijanie pustych xmli (np. główny xml książki, która ma części)
 - odświeżanie obrazka ajaxem
+- znaczek ładowania na czas ładowania zawartości
 - stały adres każdego cytatu, by dało się do niego linkować
 - link do pobrania obrazka
 - social share
