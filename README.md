@@ -11,6 +11,8 @@ TODO
 - w php omijanie pustych xmli (np. główny xml książki, która ma części)
 - odświeżanie obrazka ajaxem
 - stały adres każdego cytatu, by dało się do niego linkować
+- link do pobrania obrazka
+- social share
 - wyszukiwanie książek po tytule
 - odświeżanie lokalnej kopii books.json lub sposób na szybsze jego parsowanie online
 [Wydaje się, ze wolnelektury blokują pobieranie hostowanych przez nich obrazków.]
