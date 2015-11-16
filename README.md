@@ -9,6 +9,7 @@ PHP zupełnie podstawowe - do ulepszenia.
 
 TODO
 - PILNE czasami skrypt w ogóle się nie wykonuje - dlaczego?
+- responsywność
 - dodanie obsługi innych odpowiednich typów literatury, oprócz powieści
 - w php omijanie pustych xmli (np. główny xml książki, która ma części)
 - odświeżanie obrazka ajaxem
