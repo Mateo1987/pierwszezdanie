@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
 	var book_credits = title + ", "+author;
 	
 	// sprawdzamy, czy zdanie nie jest puste
@@ -8,10 +9,13 @@ $(document).ready(function() {
 			console.log('odswiezamy');
 			location.reload();
 		}
+		else {
+			console.log("jest ok");
+		}
 	}
 	notEmpty(sentence);
-
-	// tymczasowo wrzucona na sztywno okładka
+    
+    // zmienne potrzebne do rysowania obrazka
 	var image_credits = "Obrazek tła: davebloggs007@Flickr CC BY 2.0"
 	var canvas = document.getElementById("main-canvas");
 	var imageObj = new Image();
@@ -25,6 +29,7 @@ $(document).ready(function() {
 	}
 	dash(sentence);
 
+	//tekst na obrazek
 	function writeText(){
 		CanvasTextWrapper(canvas, finalSentence,{
 			textAlign: "center",
@@ -69,6 +74,8 @@ $(document).ready(function() {
 	imageObj.onerror = function() {
 		console.log("image error");
 	}
+
+	//chwilowo na sztywno obrazek tła
 	imageObj.src = './img/4689.jpg';
 	canvas.width = 1000;
 	canvas.height = 600;
@@ -76,6 +83,7 @@ $(document).ready(function() {
 	context.lineWidth = 1;
 	context.strokeStyle = "black";
 	context.fillStyle = 'white';
+	
 	// przycisk odśwież
 	$('.refresh').click(function(){
 		location.reload();
