@@ -6,33 +6,22 @@ http://pierwszezdanie.pl
 
 PHP zupełnie podstawowe - do ulepszenia.
 
-Póki co korzystam z brzydkiego i pewnie bardzo nieefektywnego hacka - ładuję cały xml książki do niewidocznego diva, 
-po czym jquery wyciągam potrzebne wartości. 
-Nie byłem jednak w stanie wyciągnąć niektórych danych w php.
-Problem dotyczy obsługi namespaces w xml.
-Jak dotrzeć do dc:relation.coverImage.url?
-Rozbijam się o problem namespaces w xml, opisany np. tutaj: http://blog.sherifmansour.com/?p=302
-
-Początkowo próbowałem poradzić sobie z samym php i pewnie docelowo tak trzeba by to zrobić. 
-
 TODO
 - dodanie obsługi innych odpowiednich typów literatury, oprócz powieści
-- pozbycie się brzydkiego hacka i czytanie wszystkich potrzebnych zmiennych wprost z xml i json
-- rysowanie tekstu na canvas, by dało się szerować w social media
+- w php omijanie pustych xmli (np. główny xml książki, która ma części)
 - odświeżanie obrazka ajaxem
 - stały adres każdego cytatu, by dało się do niego linkować
-- opcja zmiany tła na inne(własne?)
 - wyszukiwanie książek po tytule
 - odświeżanie lokalnej kopii books.json lub sposób na szybsze jego parsowanie online
+[Wydaje się, ze wolnelektury blokują pobieranie hostowanych przez nich obrazków.]
+- wykorzystać api Flickr lub podonego serwisu, znaleźć sposób na obejście blokady bez obciążania serwerów wolnych lektur
+
 
 API WOLNYCYH LEKTUR
 Strona powstała dzięki API Wolnych Lektur.
 http://wolnelektury.pl/api
 
 Szkoda, że w json w obiekcie danej książki nie ma adresu xml. Początkowo próbowałem generować adres pliku xml przez analogię do adresu url książki, ale okazuje się, że nie zawsze są analogiczne.
-
-Wydaje się, ze wolnelektury blokują pobieranie hostowanych przez nich obrazków. 
-TODO - wykorzystać api Flickr lub podonego serwisu.
 
 Pamiętaj, by korzystać i wspierać wolnelektury!
 https://wolnelektury.pl/
