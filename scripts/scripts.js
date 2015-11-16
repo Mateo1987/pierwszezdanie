@@ -72,4 +72,22 @@ $(document).ready(function() {
 		location.reload();
 	});
 
+	//zmiana tła
+	$('.white div').click(function(){
+		context.fillStyle = "white";
+		context.fillRect(0, 0, canvas.width, canvas.height);
+		context.fillStyle = "black";
+		writeText();
+	})
+	$('.black div').click(function(){
+		context.fillStyle = "black";
+		context.fillRect(0, 0, canvas.width, canvas.height);
+		context.fillStyle = "white";
+		writeText();
+	})
+	$('.picture div').click(function(){
+		context.drawImage(imageObj, 0, 0);
+		writeText();
+	})
+
 });
