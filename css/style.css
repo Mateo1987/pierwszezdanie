@@ -90,6 +90,7 @@ a:hover .icon,
 }
 .picture div {
 	background-image: url("../img/pic.png");
+	background-size:cover;
 }
 .white div {
 	background-color: white;
