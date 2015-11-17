@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-	var book_credits = title + ", "+author;
+
 	
 	// sprawdzamy, czy zdanie nie jest puste
 	//FIXME dziala, ale najpierw wyświetla stronę z pustym cytatem
@@ -10,13 +10,11 @@ $(document).ready(function() {
 			console.log('odswiezamy');
 			location.reload();
 		}
-		else {
-			console.log("jest ok");
-		}
 	}
 	notEmpty(sentence);
     
     // zmienne potrzebne do rysowania obrazka
+	var book_credits = title + ", "+author;
 	var image_credits = "Obrazek tła: davebloggs007@Flickr CC BY 2.0"
 	var canvas = document.getElementById("main-canvas");
 	var imageObj = new Image();
