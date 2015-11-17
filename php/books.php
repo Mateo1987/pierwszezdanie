@@ -4,12 +4,24 @@
     /*plik json dostarczony przez api wolnychlektur pobrany lokalnie, bo bardzo duży
     https://wolnelektury.pl/api/books/
     FIXME albo trzeba znaleźć sposób, by jednak parsować ten plik online albo wdrożyć mechanikę jego odświeżania co jakiś czas*/
-    $json = file_get_contents("./json/books.json");
+    $json = file_get_contents("../json/books.json");
     $books = json_decode($json);
     $novels = array();
+    $chosenAuthor = "";
+    $chosenTitle = "";
+    $chosenCover = "";
+    $chosenUrl = "";
+    $chosenXML = "";
 
-    //Obiekt książka do dodawania do array novels
-        class Book {
+    // wypełniamy array powieściami
+    foreach ($books as $book) {
+        if ($book->genre == "Powieść") {
+            $newHref = $book->href;
+            array_push($novels,$newHref);
+        }
+    }
+    /*//Obiekt książka do dodawania do array novels
+        class Hrefs {
             // Creating some properties (variables tied to an object)
             public $title;
             public $author;
@@ -25,50 +37,46 @@
               $this->href = $href;
               $this->cover = $cover;
             }
-          }
+          }*/
 
-	/*wybieramy tylko powieści, bo są jeszcze dzieła graficzne a i z wierszy niekoniecznie da się ładne pierwsze zdanie wybrać
-    FIXME do poszerzenia o inne rodzaje podobne do powieści, np. nowela, uwaga bo inna struktura xml*/
-    foreach ($books as $book) {
-        if ($book->genre == "Powieść") {
-        	$newTitle = $book->title;
-        	$newAuthor = $book->author;
-        	$newUrl = $book->url;
-        	$newHref = $book->href;
-            $newCover = $book->cover;
-			$newNovel = new Book($newTitle,$newAuthor,$newUrl,$newHref,$newCover);    
-            array_push($novels,$newNovel);
+    // funkcja do losowania książki
+    function chooseBook() {
+        global $novels;
+        global $chosenAuthor;
+        global $chosenTitle;
+        global $chosenUrl;
+        global $chosenXML;
+        $random_book = rand(0,count($novels));
+        $chosen_href = $novels[$random_book];
+        $json = file_get_contents($chosen_href);
+        $chosen_json = json_decode($json,true);
+        $children = $chosen_json['children'];
+        if ( empty($children[0]) ) {
+            $chosenAuthor = $chosen_json['authors'][0]['name'];
+            $chosenTitle = $chosen_json['title'];
+            $chosenUrl = $chosen_json['url'];
+            $chosenXML = $chosen_json['xml'];
+        }
+        else {
+            echo "niepuste";
+            chooseBook();
         }
     }
 
-    // wybieramy losową powieść
-    $random_book = rand(0,count($novels));
-    $chosen_book = $novels[$random_book];
+    // tutaj już pracujemy na pliku x
+    // FIXME nietypowa struktura xml, np Eugenia Grandet
+    chooseBook();
 
-    //autora, tytuł i okładkę bierzemy z obiektu wylosowanej książki
-    $chosenAuthor = $chosen_book->author;
-    $chosenTitle = $chosen_book->title;
-    $chosenCover = $chosen_book->cover;
-    $chosenUrl = $chosen_book->bookUrl;
-    
-    //adres pliku xml parsujemy ze strony html książki
-    $html = file_get_html($chosen_book->bookUrl);
-    $links_div = $html->find('div.other-tools ul li a[href*=xml]');
-    
-    // zmieniam array na string, bo łatwiej znaleźć
-    $comma_separated = implode(",", $links_div);
-    $xml_relative = substr($comma_separated,9,-26);
-    $xml_final = "http://wolnelektury.pl$xml_relative";
-    
-    // tutaj już pracujemy na pliku xml
-    // FIXME - wyjątki do obsłużenia: gdy powieść ma części (jak /potop),
-    // nietypowa struktura xml, np Eugenia Grandet
-    $chosen_book_xml = simplexml_load_file($xml_final);
+    $chosen_book_xml = simplexml_load_file($chosenXML);
     $akap = $chosen_book_xml->powiesc->akap[0];
     if (strlen($akap)==0){
         $akap = $chosen_book_xml->opowiadanie->akap;
     }
     $sentence = strstr($akap, '.', true).".";
-
- 
+    echo $sentence;
+    echo $chosenAuthor;
+    echo $chosenTitle;
+    echo $chosenCover;
+    echo $chosenUrl;
+    echo $chosenXML;
  ?>
