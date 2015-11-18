@@ -22,25 +22,7 @@
             array_push($novels,$newHref);
         }
     }
-    /*//Obiekt książka do dodawania do array novels
-        class Hrefs {
-            // Creating some properties (variables tied to an object)
-            public $title;
-            public $author;
-            public $bookUrl;
-            public $href;
-            public $cover;
-            
-            // Assigning the values
-            public function __construct($title,$author,$bookUrl,$href) {
-              $this->title = $title;
-              $this->author = $author;
-              $this->bookUrl = $bookUrl;
-              $this->href = $href;
-              $this->cover = $cover;
-            }
-          }*/
-
+  
     // funkcja do losowania książki
     function chooseBook() {
         global $novels;
@@ -64,6 +46,17 @@
         }
     }
 
+    function createSentence($abc){
+        global $sentence;
+        //gdy zdanie nie końćzy się korpką
+        if (strpos($abc,"/.") != false){
+            $sentence = $abc.".";
+        }
+        else {
+            $sentence = strstr($abc, '.', true).".";
+        }
+    }
+
     // tutaj już pracujemy na pliku x
     // FIXME nietypowa struktura xml, np Eugenia Grandet
     function chooseSentence($xml) {
@@ -75,16 +68,13 @@
         if (strlen($akap)==0){
             $akap = $chosen_book_xml->opowiadanie->akap;
             if (strlen($akap)==0){
-                echo "krotkie";
                 chooseBook();
                 chooseSentence($chosenXML);
             }
         }
-    $sentence = strstr($akap, '.', true).".";
+    createSentence($akap);
     }
-    
     chooseBook();
     chooseSentence($chosenXML);
-    
 
  ?>
