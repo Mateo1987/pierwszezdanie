@@ -9,11 +9,10 @@
   <?php include 'php/books.php'; ?>
   <script src="bower_components/canvas-text-wrapper/canvas-text-wrapper.min.js"></script>
   <script type="text/javascript">
-  	<?php 
-	    echo "var sentence = '$sentence';";
-	    echo "var title = '$chosenTitle';";
-	    echo "var author = '$chosenAuthor';";
-	?> 
+
+	    var sentence = <?php echo json_encode($sentence);?>;
+	    var title = <?php echo json_encode($chosenTitle);?>;
+	    var author = <?php echo json_encode($chosenAuthor);?>; 
   </script>
   <script type="text/javascript" src="scripts/scripts.js"></script>
 </head>
