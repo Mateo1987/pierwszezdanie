@@ -49,7 +49,7 @@
     function createSentence($abc){
         global $sentence;
         //gdy zdanie nie końćzy się korpką
-        if (strpos($abc,".") !==false){
+        if (strpos($abc,"/.") != false){
             $sentence = $abc.".";
         }
         else {
@@ -76,6 +76,5 @@
     }
     chooseBook();
     chooseSentence($chosenXML);
-    
 
  ?>
