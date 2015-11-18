@@ -19,7 +19,7 @@ TODO
 - wyszukiwanie książek po tytule
 - odświeżanie lokalnej kopii books.json lub sposób na szybsze jego parsowanie online
 [Wydaje się, ze wolnelektury blokują pobieranie hostowanych przez nich obrazków.]
-- wykorzystać api Flickr lub podonego serwisu, znaleźć sposób na obejście blokady bez obciążania serwerów wolnych lektur
+- dodawać pliki obrazka z wolnych lektur (cache?) awaryjnie wykorzystać api Flickr lub podonego serwisu, znaleźć sposób na obejście blokady bez obciążania serwerów wolnych lektur
 
 
 API WOLNYCYH LEKTUR

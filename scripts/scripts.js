@@ -7,7 +7,6 @@ $(document).ready(function() {
 	var imageObj = new Image();
 	var finalSentence = '';
 	var us = "pierwszezdanie.pl";
-	console.log(sentence);
 
 	// zamieniamy długie myślniki na krótki
 	var dash = function(sntc){
