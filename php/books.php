@@ -60,7 +60,6 @@
             $chosenXML = $chosen_json['xml'];
         }
         else {
-            echo "niepuste";
             chooseBook();
         }
     }
