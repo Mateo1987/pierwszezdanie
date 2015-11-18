@@ -8,10 +8,9 @@ PHP zupełnie podstawowe - do ulepszenia.
 
 
 TODO
-- PILNE czasami skrypt w ogóle się nie wykonuje - dlaczego?
+- Długie zdania nie mieszczą się na obrazku
 - responsywność
-- dodanie obsługi innych odpowiednich typów literatury, oprócz powieści
-- w php omijanie pustych xmli (np. główny xml książki, która ma części)
+- dodanie obsługi innych odpowiednich typów literatury, oprócz powieści, nietypowych przypadków (np. książka zaczyna się od dialogu)
 - odświeżanie obrazka ajaxem
 - znaczek ładowania na czas ładowania zawartości
 - stały adres każdego cytatu, by dało się do niego linkować
