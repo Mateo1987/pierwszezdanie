@@ -1,18 +1,5 @@
 $(document).ready(function() {
 
-
-	
-	// sprawdzamy, czy zdanie nie jest puste
-	//FIXME dziala, ale najpierw wyświetla stronę z pustym cytatem
-	//Idealnie byłoby odfiltrowywać te rzeczy na poziomie php
-	var notEmpty = function(sntc){
-		if (sntc.length<4){
-			console.log('odswiezamy');
-			location.reload();
-		}
-	}
-	notEmpty(sentence);
-    
     // zmienne potrzebne do rysowania obrazka
 	var book_credits = title + ", "+author;
 	var image_credits = "Obrazek tła: davebloggs007@Flickr CC BY 2.0"
