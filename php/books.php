@@ -4,7 +4,7 @@
     /*plik json dostarczony przez api wolnychlektur pobrany lokalnie, bo bardzo duży
     https://wolnelektury.pl/api/books/
     FIXME albo trzeba znaleźć sposób, by jednak parsować ten plik online albo wdrożyć mechanikę jego odświeżania co jakiś czas*/
-    $json = file_get_contents("./json/books.json");
+    $json = file_get_contents("../json/books.json");
     $books = json_decode($json);
     $novels = array();
     $chosenAuthor = "";
@@ -22,25 +22,7 @@
             array_push($novels,$newHref);
         }
     }
-    /*//Obiekt książka do dodawania do array novels
-        class Hrefs {
-            // Creating some properties (variables tied to an object)
-            public $title;
-            public $author;
-            public $bookUrl;
-            public $href;
-            public $cover;
-            
-            // Assigning the values
-            public function __construct($title,$author,$bookUrl,$href) {
-              $this->title = $title;
-              $this->author = $author;
-              $this->bookUrl = $bookUrl;
-              $this->href = $href;
-              $this->cover = $cover;
-            }
-          }*/
-
+  
     // funkcja do losowania książki
     function chooseBook() {
         global $novels;
@@ -65,6 +47,17 @@
         }
     }
 
+    function createSentence($abc){
+        global $sentence;
+        //gdy zdanie nie końćzy się korpką
+        if (strpos($abc,".") !==false){
+            $sentence = $abc.".";
+        }
+        else {
+            $sentence = strstr($abc, '.', true).".";
+        }
+    }
+
     // tutaj już pracujemy na pliku x
     // FIXME nietypowa struktura xml, np Eugenia Grandet
     function chooseSentence($xml) {
@@ -73,7 +66,9 @@
         global $chosenXML;
         $chosen_book_xml = simplexml_load_file($xml);
         $akap = $chosen_book_xml->powiesc->akap[0];
+        echo $akap[0];
         if (strlen($akap)==0){
+            echo "zero";
             $akap = $chosen_book_xml->opowiadanie->akap;
             if (strlen($akap)==0){
                 echo "krotkie";
@@ -81,9 +76,8 @@
                 chooseSentence($chosenXML);
             }
         }
-    $sentence = strstr($akap, '.', true).".";
+    createSentence($akap);
     }
-    
     chooseBook();
     chooseSentence($chosenXML);
     
