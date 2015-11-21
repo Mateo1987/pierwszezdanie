@@ -63,8 +63,8 @@ $(document).ready(function() {
 
 	//chwilowo na sztywno obrazek tła
 	imageObj.src = './img/4689.jpg';
-	canvas.width = 1000;
-	canvas.height = 600;
+	canvas.width = 1200;
+	canvas.height = 720;
 	context = canvas.getContext("2d");
 	context.lineWidth = 1;
 	context.strokeStyle = "black";
