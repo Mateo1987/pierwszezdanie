@@ -56,7 +56,7 @@ $(document).ready(function() {
 
 	// rysujemy canvas
 	imageObj.onload = function() {
-		context.drawImage(imageObj, 0, 0);
+		context.drawImage(imageObj, 0, 0, imageObj.width, imageObj.height, 0, 0, canvas.width, canvas.height);
 		writeText();
 	};
 	imageObj.onerror = function() {
