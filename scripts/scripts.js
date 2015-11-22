@@ -2,12 +2,14 @@ $(document).ready(function() {
 
     // zmienne potrzebne do rysowania obrazka
 	var book_credits = title + ", "+author;
-	var image_credits = "Obrazek tła: davebloggs007@Flickr CC BY 2.0"
+	var image_credits = credits[0];
 	var canvas = document.getElementById("main-canvas");
 	var imageObj = new Image();
 	var finalSentence = '';
 	var us = "pierwszezdanie.pl";
 	console.log(sentence);
+	console.log(credits[0]);
+	console.log(image[0]);
 
 	// zamieniamy długie myślniki na krótki
 	var dash = function(sntc){
@@ -62,7 +64,7 @@ $(document).ready(function() {
 	}
 
 	//chwilowo na sztywno obrazek tła
-	imageObj.src = './img/4689.jpg';
+	imageObj.src = image[0];
 	canvas.width = 1200;
 	canvas.height = 720;
 	context = canvas.getContext("2d");

@@ -5,12 +5,11 @@
     /*plik json dostarczony przez api wolnychlektur pobrany lokalnie, bo bardzo duży
     https://wolnelektury.pl/api/books/
     FIXME albo trzeba znaleźć sposób, by jednak parsować ten plik online albo wdrożyć mechanikę jego odświeżania co jakiś czas*/
-    $json = file_get_contents("../json/books.json");
+    $json = file_get_contents("./json/books.json");
     $books = json_decode($json);
     $novels = array();
     $chosenAuthor = "";
     $chosenTitle = "";
-    $chosenCover = "";
     $chosenUrl = "";
     $chosenXML = "";
     $sentence = "";
