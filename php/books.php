@@ -1,10 +1,11 @@
 <?php 
+    // biblioteka do parsowania xml
     include('simple_html_dom.php');
 
     /*plik json dostarczony przez api wolnychlektur pobrany lokalnie, bo bardzo duży
     https://wolnelektury.pl/api/books/
     FIXME albo trzeba znaleźć sposób, by jednak parsować ten plik online albo wdrożyć mechanikę jego odświeżania co jakiś czas*/
-    $json = file_get_contents("./json/books.json");
+    $json = file_get_contents("../json/books.json");
     $books = json_decode($json);
     $novels = array();
     $chosenAuthor = "";
@@ -14,6 +15,7 @@
     $chosenXML = "";
     $sentence = "";
     $akap = "";
+    $backgroundImage = "";
 
     // wypełniamy array powieściami
     foreach ($books as $book) {
@@ -57,7 +59,7 @@
         }
     }
 
-    // tutaj już pracujemy na pliku x
+    // tutaj już pracujemy na pliku xml
     // FIXME nietypowa struktura xml, np Eugenia Grandet
     function chooseSentence($xml) {
         global $sentence;
@@ -74,7 +76,25 @@
         }
     createSentence($akap);
     }
+    /*funkcja do wyciągania adresu url obrazka tła z pliku xml*/
+    function getImageURl($xml){
+        global $chosenXML;
+        global $backgroundImage;
+        $chosen_book_xml = simplexml_load_file($xml);
+        $rdf = $chosen_book_xml->children("http://www.w3.org/1999/02/22-rdf-syntax-ns#");
+        if (is_null($rdf)) {
+            // Na wypadek RDF wewnÄ…trz mastera.
+            $rdf = $chosen_book_xml[0]->children("http://www.w3.org/1999/02/22-rdf-syntax-ns#");
+        }
+
+        $description = $rdf->children("http://www.w3.org/1999/02/22-rdf-syntax-ns#")->Description;
+        $dc = $description->children("http://purl.org/dc/elements/1.1/");
+        $backgroundImage = $dc->{"relation.coverImage.url"};
+    }
+    
     chooseBook();
     chooseSentence($chosenXML);
+    getImageURl($chosenXML);
+    echo $backgroundImage;
 
  ?>
