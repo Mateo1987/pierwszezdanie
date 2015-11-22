@@ -16,6 +16,7 @@
     $sentence = "";
     $akap = "";
     $backgroundImage = "";
+    $imageCredits = "";
 
     // wypełniamy array powieściami
     foreach ($books as $book) {
@@ -80,6 +81,7 @@
     function getImageURl($xml){
         global $chosenXML;
         global $backgroundImage;
+        global $imageCredits;
         $chosen_book_xml = simplexml_load_file($xml);
         $rdf = $chosen_book_xml->children("http://www.w3.org/1999/02/22-rdf-syntax-ns#");
         if (is_null($rdf)) {
@@ -90,11 +92,11 @@
         $description = $rdf->children("http://www.w3.org/1999/02/22-rdf-syntax-ns#")->Description;
         $dc = $description->children("http://purl.org/dc/elements/1.1/");
         $backgroundImage = $dc->{"relation.coverImage.url"};
+        $imageCredits = $dc->{"relation.coverImage.attribution"};
     }
     
     chooseBook();
     chooseSentence($chosenXML);
     getImageURl($chosenXML);
-    echo $backgroundImage;
 
  ?>
