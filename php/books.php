@@ -70,8 +70,7 @@
         if (strlen($akap)==0){
             $akap = $chosen_book_xml->opowiadanie->akap;
             if (strlen($akap)==0){
-                chooseBook();
-                chooseSentence($chosenXML);
+                $akap = $chosen_book_xml->opowiadanie->akap_dialog;
             }
         }
     createSentence($akap);
