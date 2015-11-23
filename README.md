@@ -35,6 +35,6 @@ O PROJEKCIE
 Projekt nie jest w żaden sposób związany z wolnymi lekturami i Fundacją Nowoczesna Polska.
 PierwszeZdanie zostało przygotowane jako zadanie szkoleniowe do nauki html/css/javascript i php.
 
-Za pomoc w oswojeniu api wolnychlektur i struktury xmli książek dziękuję Radkowi Czajce z Fundacji Nowoczesna Polska
+Za pomoc w oswojeniu api wolnychlektur i struktury xmli książek dziękuję <a href="https://github.com/rczajka">Radkowi Czajce</a> z <a href="https://github.com/fnp/">Fundacji Nowoczesna Polska</a>
 
 
