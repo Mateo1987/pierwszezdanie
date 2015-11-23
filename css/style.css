@@ -36,8 +36,8 @@ canvas {
 	display: block;
 	margin: 20px auto;
 	border: 4px solid black;
-	width: 1000px;
-	height: 600px;
+	width: 1200px;
+	height: 720px;
 }
 .icon {
 	background:white;
@@ -49,10 +49,7 @@ a:hover .icon,
 }
 .sentence,
 .more,
-.social{
-	width:800px;
-	margin: auto;
-}
+.social,
 .options {
 	width: 800px;
 	margin: auto;
@@ -139,4 +136,95 @@ h1 {
 }
 h2 {
 	font-size: 1.5em;
+}
+
+
+/*responsywność*/
+
+@media all and (max-width: 1200px) {
+	canvas {
+	width: 900px;
+	height: 540px;
+	}
+}
+
+
+@media all and (max-width: 962px) {
+	canvas {
+	width: 700px;
+	height: 420px;
+	}
+	.sentence,
+	.more,
+	.social,
+	.options {
+		width: 600px;
+		margin: auto;
+	}
+	
+}
+
+@media all and (max-width: 768px) {
+	canvas {
+	width: 600px;
+	height: 360px;
+	}
+	.sentence,
+	.more,
+	.social,
+	.options {
+		width: 500px;
+		margin: auto;
+	}
+	.options-choice {
+		width:90px;
+		top: -250px;
+		left: -90px;
+	}
+	.options-choice li {
+		width:100%;
+	}
+	.options-choice li div {
+		margin: 15px auto;
+		float: none;
+	}
+	.options-choice li:last-child{
+		border-radius: 0 0 5px 5px;
+	}
+	.options-choice li:first-child{
+		border-radius: 5px 5px 0 0;
+	}
+
+
+
+@media all and (max-width: 400px) {
+	canvas {
+	width: 400px;
+	height: 240px;
+	}
+	.sentence,
+	.more,
+	.social,
+	.options {
+		width: 300px;
+		margin: auto;
+	}
+	.options-choice {
+		width:90px;
+		top: -250px;
+		left: -90px;
+	}
+	.options-choice li {
+		width:100%;
+	}
+	.options-choice li div {
+		margin: 15px auto;
+		float: none;
+	}
+	.options-choice li:last-child{
+		border-radius: 0 0 5px 5px;
+	}
+	.options-choice li:first-child{
+		border-radius: 5px 5px 0 0;
+	}
 }

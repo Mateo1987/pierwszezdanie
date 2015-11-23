@@ -2,11 +2,17 @@ $(document).ready(function() {
 
     // zmienne potrzebne do rysowania obrazka
 	var book_credits = title + ", "+author;
-	var image_credits = "Obrazek tła: davebloggs007@Flickr CC BY 2.0"
+	var image_credits = credits[0];
 	var canvas = document.getElementById("main-canvas");
 	var imageObj = new Image();
 	var finalSentence = '';
 	var us = "pierwszezdanie.pl";
+<<<<<<< HEAD
+=======
+	console.log(sentence);
+	console.log(credits[0]);
+	console.log(image);
+>>>>>>> staging
 
 	// zamieniamy długie myślniki na krótki
 	var dash = function(sntc){
@@ -50,20 +56,35 @@ $(document).ready(function() {
 			paddingY: 5
 		});
 	}
+	var drawingWidth;
+	var drawingHeight;
+	var centerShiftX = 0;
+	var centerShiftY = 0;
+	/*ustalamy sposób skalowania obrazka*/
+	function addjustSize (cnvsWidth,cnvsHeight,imgWidth,imgHeight){
+		var ratio = cnvsWidth/imgWidth;
+		console.log(ratio);
+		drawingWidth = imgWidth * ratio;
+		drawingHeight = imgHeight * ratio;
+		console.log("obrazek szerok"+imgWidth);
+		console.log("obrazek wysok "+imgHeight);
+		console.log("rysujemy: "+drawingWidth);
+		console.log("rysujemy wysok "+drawingHeight);
+	}
 
 	// rysujemy canvas
 	imageObj.onload = function() {
-		context.drawImage(imageObj, 0, 0);
+		addjustSize(canvas.width,canvas.height,imageObj.width,imageObj.height);
+	   	context.drawImage(imageObj, centerShiftX, centerShiftY, drawingWidth, drawingHeight);
 		writeText();
 	};
 	imageObj.onerror = function() {
 		console.log("image error");
 	}
 
-	//chwilowo na sztywno obrazek tła
-	imageObj.src = './img/4689.jpg';
-	canvas.width = 1000;
-	canvas.height = 600;
+	imageObj.src = image;
+	canvas.width = $("canvas").width();
+	canvas.height = $("canvas").height();
 	context = canvas.getContext("2d");
 	context.lineWidth = 1;
 	context.strokeStyle = "black";
@@ -88,7 +109,7 @@ $(document).ready(function() {
 		writeText();
 	})
 	$('.picture div').click(function(){
-		context.drawImage(imageObj, 0, 0);
+		context.drawImage(imageObj, centerShiftX, centerShiftY, drawingWidth, drawingHeight);
 		context.fillStyle = "white";
 		writeText();
 	})

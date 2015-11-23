@@ -1,6 +1,7 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
   <title>Pierwsze zdanie losowej powieśi z wolnych lektur - beta</title>
   <link href='https://fonts.googleapis.com/css?family=Arvo:400,700,700italic,400italic' rel='stylesheet' type='text/css'>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -12,7 +13,9 @@
 
 	    var sentence = <?php echo json_encode($sentence);?>;
 	    var title = <?php echo json_encode($chosenTitle);?>;
-	    var author = <?php echo json_encode($chosenAuthor);?>; 
+	    var author = <?php echo json_encode($chosenAuthor);?>;
+      var image = <?php echo json_encode($backgroundImage);?>;  
+      var credits = <?php echo json_encode($imageCredits);?>; 
   </script>
   <script type="text/javascript" src="scripts/scripts.js"></script>
 </head>
