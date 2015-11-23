@@ -53,20 +53,49 @@ $(document).ready(function() {
 			paddingY: 5
 		});
 	}
+	var drawingWidth;
+	var drawingHeight;
+	var centerShiftX = 0;
+	var centerShiftY = 0;
+	/*ustalamy sposób skalowania obrazka*/
+	function addjustSize (cnvsWidth,cnvsHeight,imgWidth,imgHeight){
+		var ratio = cnvsWidth/imgWidth;
+		console.log(ratio);
+		if (cnvsWidth > imgWidth){
+			console.log("a");
+			drawingWidth = imgWidth * ratio;
+			drawingHeight = imgHeight * ratio;
+			console.log("obrazek szerok"+imgWidth);
+			console.log("obrazek wysok "+imgHeight);
+			console.log("rysujemy: "+drawingWidth);
+			console.log("rysujemy wysok "+drawingHeight);
+		}
+		else if (cnvsWidth < imgWidth){
+			console.log("b");
+			drawingWidth = imgWidth;
+			drawingHeight = imgHeight;
+			console.log("obrazek szerok"+imgWidth);
+			console.log("obrazek wysok "+imgHeight);
+			console.log("rysujemy: "+drawingWidth);
+			console.log("rysujemy wysok "+drawingHeight);
+			drawingWidth = imgWidth;
+			drawingHeight = imgHeight;
+		}
+	}
 
 	// rysujemy canvas
 	imageObj.onload = function() {
-		context.drawImage(imageObj, 0, 0, imageObj.width, imageObj.height, 0, 0, canvas.width, canvas.height);
+		addjustSize(canvas.width,canvas.height,imageObj.width,imageObj.height);
+	   	context.drawImage(imageObj, centerShiftX, centerShiftY, drawingWidth, drawingHeight);
 		writeText();
 	};
 	imageObj.onerror = function() {
 		console.log("image error");
 	}
 
-	//chwilowo na sztywno obrazek tła
 	imageObj.src = image[0];
-	canvas.width = 1200;
-	canvas.height = 720;
+	canvas.width = $("canvas").width();
+	canvas.height = $("canvas").height();
 	context = canvas.getContext("2d");
 	context.lineWidth = 1;
 	context.strokeStyle = "black";
@@ -91,7 +120,7 @@ $(document).ready(function() {
 		writeText();
 	})
 	$('.picture div').click(function(){
-		context.drawImage(imageObj, 0, 0);
+		context.drawImage(imageObj, centerShiftX, centerShiftY, drawingWidth, drawingHeight);
 		context.fillStyle = "white";
 		writeText();
 	})
