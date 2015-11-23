@@ -7,12 +7,7 @@ $(document).ready(function() {
 	var imageObj = new Image();
 	var finalSentence = '';
 	var us = "pierwszezdanie.pl";
-<<<<<<< HEAD
-=======
-	console.log(sentence);
-	console.log(credits[0]);
-	console.log(image);
->>>>>>> staging
+
 
 	// zamieniamy długie myślniki na krótki
 	var dash = function(sntc){

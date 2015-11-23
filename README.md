@@ -19,7 +19,7 @@ TODO
 - wyszukiwanie książek po tytule
 - odświeżanie lokalnej kopii books.json lub sposób na szybsze jego parsowanie online
 [Wydaje się, ze wolnelektury blokują pobieranie hostowanych przez nich obrazków.]
-- dodawać pliki obrazka z wolnych lektur (cache?) awaryjnie wykorzystać api Flickr lub podonego serwisu, znaleźć sposób na obejście blokady bez obciążania serwerów wolnych lektur
+
 
 
 API WOLNYCYH LEKTUR
@@ -34,5 +34,7 @@ https://wolnelektury.pl/
 O PROJEKCIE
 Projekt nie jest w żaden sposób związany z wolnymi lekturami i Fundacją Nowoczesna Polska.
 PierwszeZdanie zostało przygotowane jako zadanie szkoleniowe do nauki html/css/javascript i php.
+
+Za pomoc w oswojeniu api wolnychlektur i struktury xmli książek dziękuję Radkowi Czajce z Fundacji Nowoczesna Polska
 
 
