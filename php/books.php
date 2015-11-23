@@ -75,7 +75,9 @@
         }
     createSentence($akap);
     }
-    /*funkcja do wyciągania adresu url obrazka tła z pliku xml*/
+
+    /*funkcja do wyciągania adresu url obrazka tła z pliku xml
+    ustawia zmienne backgroundImage i imageCredits*/
     function getImageURl($xml){
         global $chosenXML;
         global $backgroundImage;
@@ -92,9 +94,35 @@
         $backgroundImage = $dc->{"relation.coverImage.url"};
         $imageCredits = $dc->{"relation.coverImage.attribution"};
     }
+
+    /*funkcja sprawdza, czy obrazek został już pobrany. Jeśli nie, pobiera go, jeśli tak, zwraca adres pliku
+    i ustawia go jako zmienną backgroundImage*/
+    function imageCache($imageWWW){
+        global $backgroundImage;
+        // prepare file name
+        $position = strpos($backgroundImage,"image/")+7;
+        $fileName = substr($backgroundImage,$position);
+        // $fileName = str_replace("http://redakcja.wolnelektury.pl/media/dynamic/cover/image/","",$backgroundImage);
+        // check if the file is in directory
+        $fileInDirectory = "./covers/".$fileName;
+        if (!file_exists($fileInDirectory)){
+            //download file
+            $ch = curl_init();
+            $source = $backgroundImage;
+            curl_setopt($ch, CURLOPT_URL, $source);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            $data = curl_exec ($ch);
+            curl_close ($ch);
+            $destination = $fileInDirectory;
+            $file = fopen($destination, "w+");
+            fputs($file, $data);
+            fclose($file); 
+        }
+        $backgroundImage = $fileInDirectory;
+    }
     
     chooseBook();
     chooseSentence($chosenXML);
     getImageURl($chosenXML);
-
+    imageCache($backgroundImage);
  ?>

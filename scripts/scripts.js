@@ -9,7 +9,7 @@ $(document).ready(function() {
 	var us = "pierwszezdanie.pl";
 	console.log(sentence);
 	console.log(credits[0]);
-	console.log(image[0]);
+	console.log(image);
 
 	// zamieniamy długie myślniki na krótki
 	var dash = function(sntc){
@@ -79,7 +79,7 @@ $(document).ready(function() {
 		console.log("image error");
 	}
 
-	imageObj.src = image[0];
+	imageObj.src = image;
 	canvas.width = $("canvas").width();
 	canvas.height = $("canvas").height();
 	context = canvas.getContext("2d");
