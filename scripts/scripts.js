@@ -61,26 +61,12 @@ $(document).ready(function() {
 	function addjustSize (cnvsWidth,cnvsHeight,imgWidth,imgHeight){
 		var ratio = cnvsWidth/imgWidth;
 		console.log(ratio);
-		if (cnvsWidth > imgWidth){
-			console.log("a");
-			drawingWidth = imgWidth * ratio;
-			drawingHeight = imgHeight * ratio;
-			console.log("obrazek szerok"+imgWidth);
-			console.log("obrazek wysok "+imgHeight);
-			console.log("rysujemy: "+drawingWidth);
-			console.log("rysujemy wysok "+drawingHeight);
-		}
-		else if (cnvsWidth < imgWidth){
-			console.log("b");
-			drawingWidth = imgWidth;
-			drawingHeight = imgHeight;
-			console.log("obrazek szerok"+imgWidth);
-			console.log("obrazek wysok "+imgHeight);
-			console.log("rysujemy: "+drawingWidth);
-			console.log("rysujemy wysok "+drawingHeight);
-			drawingWidth = imgWidth;
-			drawingHeight = imgHeight;
-		}
+		drawingWidth = imgWidth * ratio;
+		drawingHeight = imgHeight * ratio;
+		console.log("obrazek szerok"+imgWidth);
+		console.log("obrazek wysok "+imgHeight);
+		console.log("rysujemy: "+drawingWidth);
+		console.log("rysujemy wysok "+drawingHeight);
 	}
 
 	// rysujemy canvas
