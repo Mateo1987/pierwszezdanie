@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+	var textBlock = 0;
     // zmienne potrzebne do rysowania obrazka
 	var book_credits = title + ", "+author;
 	var image_credits = credits[0];
@@ -21,33 +22,38 @@ $(document).ready(function() {
 	function writeText(){
 		CanvasTextWrapper(canvas, finalSentence,{
 			textAlign: "center",
-			font: "40pt Arvo",
-			lineHeight: 3,
+			font: "bold 40px Lato",
+			lineHeight: 1.5,
 			verticalAlign: "middle",
 			strokeText: true,
-			paddingX: 10,
+			paddingX: 20,
 			paddingY: 20
-		});   
+		}); 
+		textBlock = textBlockHeight;
+		console.log(textBlock);
+		drawMainBackground();
+		drawLowerBackground(); 
+		context.fillStyle = 'white'; 
 		CanvasTextWrapper(canvas, book_credits,{
 			textAlign: "left",
-			font: "italic 20pt Arvo",
-			lineHeight: 3,
+			font: "italic 20px Lato",
+			lineHeight: 1.5,
 			verticalAlign: "bottom",
 			paddingX: 50,
 			paddingY: 50
 		});
 		CanvasTextWrapper(canvas, image_credits,{
 			textAlign: "left",
-			font: "italic 10pt Arvo",
-			lineHeight: 3,
+			font: "italic 15px Lato",
+			lineHeight: 1.5,
 			verticalAlign: "bottom",
 			paddingX: 50,
 			paddingY: 5
 		});
 		CanvasTextWrapper(canvas, us,{
 			textAlign: "right",
-			font: "italic 10pt Arvo",
-			lineHeight: 3,
+			font: "italic 15px Lato",
+			lineHeight: 1.5,
 			verticalAlign: "bottom",
 			paddingX: 50,
 			paddingY: 5
@@ -60,7 +66,6 @@ $(document).ready(function() {
 	/*ustalamy sposób skalowania obrazka*/
 	function addjustSize (cnvsWidth,cnvsHeight,imgWidth,imgHeight){
 		var ratio = cnvsWidth/imgWidth;
-		console.log(ratio);
 		drawingWidth = imgWidth * ratio;
 		drawingHeight = imgHeight * ratio;
 		console.log("obrazek szerok"+imgWidth);
@@ -69,11 +74,25 @@ $(document).ready(function() {
 		console.log("rysujemy wysok "+drawingHeight);
 	}
 
-	// rysujemy canvas
+	// rysujemy tło ciemniejsze pod napisy na dole
+	function drawLowerBackground(){
+		context.beginPath();
+      	context.rect(0, (canvas.height-100), canvas.width, 100);
+      	context.fillStyle = 'rgba(0,0,0,0.5)';
+      	context.fill();
+	}
+	function drawMainBackground(){
+		context.beginPath();
+      	context.rect(0, ((canvas.height/2)-(textBlock/2)), canvas.width, textBlock);
+      	context.fillStyle = 'rgba(0,0,0,0.5)';
+      	context.fill();
+	}
+
+		// rysujemy canvas
 	imageObj.onload = function() {
 		addjustSize(canvas.width,canvas.height,imageObj.width,imageObj.height);
 	   	context.drawImage(imageObj, centerShiftX, centerShiftY, drawingWidth, drawingHeight);
-		writeText();
+	   	writeText();
 	};
 	imageObj.onerror = function() {
 		console.log("image error");
