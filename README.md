@@ -8,7 +8,6 @@ PHP zupełnie podstawowe - do ulepszenia.
 
 
 TODO
-- Długie zdania nie mieszczą się na obrazku
 - responsywność
 - dodanie obsługi innych odpowiednich typów literatury, oprócz powieści, nietypowych przypadków (np. książka zaczyna się od dialogu)
 - odświeżanie obrazka ajaxem
