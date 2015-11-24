@@ -3,12 +3,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>Pierwsze zdanie losowej powieśi z wolnych lektur - beta</title>
-  <link href='https://fonts.googleapis.com/css?family=Arvo:400,700,700italic,400italic' rel='stylesheet' type='text/css'>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/style.css">
   <?php include 'php/books.php'; ?>
-  <script src="bower_components/canvas-text-wrapper/canvas-text-wrapper.min.js"></script>
+  <script src="bower_components/canvas-text-wrapper/canvas-text-wrapper.js"></script>
   <script type="text/javascript">
 
 	    var sentence = <?php echo json_encode($sentence);?>;

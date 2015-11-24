@@ -4,11 +4,12 @@
  *  MIT License (http://www.opensource.org/licenses/mit-license.html)
  */
 
-
+var textBlockHeight = 0;
 (function (root) {
 
   function CanvasTextWrapper(canvas, text, options) {
     'use strict';
+    var blockHeight = 0;
 
     var defaults = {
       font: '18px Arial, sans-serif',
@@ -43,7 +44,7 @@
     var MAX_TXT_HEIGHT = EL_HEIGHT - (opts.paddingY * 2);
 
     var fontSize = opts.font.match(/\d+(px|em|%)/g) ? +opts.font.match(/\d+(px|em|%)/g)[0].match(/\d+/g) : 18;
-    var textBlockHeight = 0;
+    
     var lines = [];
     var newLineIndexes = [];
     var textPos = {x: 0, y: 0};
@@ -271,6 +272,7 @@
       if (typeof opts.strokeText !== 'boolean')
         throw new TypeError('Property "strokeText" must be a Boolean.');
     }
+
   }
 
   if ('module' in root && 'exports' in module) {
