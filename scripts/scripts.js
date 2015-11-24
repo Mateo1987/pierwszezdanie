@@ -89,6 +89,11 @@ $(document).ready(function() {
 		var ratio = cnvsWidth/imgWidth;
 		drawingWidth = imgWidth * ratio;
 		drawingHeight = imgHeight * ratio;
+		if (drawingHeight < cnvsHeight) {
+			var ratio2 = cnvsHeight/drawingHeight;
+			drawingHeight = ratio2 * cnvsHeight;
+			drawingWidth = ratio2 * cnvsWidth;
+		}
 		console.log("obrazek szerok"+imgWidth);
 		console.log("obrazek wysok "+imgHeight);
 		console.log("rysujemy: "+drawingWidth);
