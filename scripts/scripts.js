@@ -29,22 +29,32 @@ $(document).ready(function() {
 			paddingX: 20,
 			paddingY: 20
 		}); 
+
 		// Ustawiamy zmienną text block na wysokość text block głównego zdania
-		textBlock = textBlockHeight;
-		console.log(textBlock);
-		drawMainBackground();
-		context.fillStyle = 'white'; 
-		CanvasTextWrapper(canvas, finalSentence,{
-			textAlign: "center",
-			font: "bold 40px Lato",
-			lineHeight: 1.5,
-			verticalAlign: "middle",
-			strokeText: true,
-			paddingX: 20,
-			paddingY: 20
-		}); 
-		drawLowerBackground(); 
-		context.fillStyle = 'white'; 
+		// Jeśli damy funkcji argument "no", to bez szarego tła (dla białej wersji)
+		if (arguments[0] != 'no'){
+			textBlock = textBlockHeight;
+			console.log(textBlock);
+			drawMainBackground();
+			context.fillStyle = 'white'; 
+
+			// Rysujemy jeszcze raz, żeby tekst był nad tłem (brzydki hack ale działa)
+			CanvasTextWrapper(canvas, finalSentence,{
+				textAlign: "center",
+				font: "bold 40px Lato",
+				lineHeight: 1.5,
+				verticalAlign: "middle",
+				strokeText: true,
+				paddingX: 20,
+				paddingY: 20
+			}); 
+		}
+
+		// bez szarego tła jeśli do funkcji dodano parametr "no" (dla białej wersji obrazka)
+		if (arguments[0] != 'no'){
+			drawLowerBackground(); 
+			context.fillStyle = 'white'; 
+		}
 		CanvasTextWrapper(canvas, book_credits,{
 			textAlign: "left",
 			font: "italic 20px Lato",
@@ -129,7 +139,7 @@ $(document).ready(function() {
 		context.fillStyle = "white";
 		context.fillRect(0, 0, canvas.width, canvas.height);
 		context.fillStyle = "black";
-		writeText();
+		writeText('no');
 	})
 	$('.black div').click(function(){
 		context.fillStyle = "black";
