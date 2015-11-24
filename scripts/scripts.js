@@ -29,9 +29,20 @@ $(document).ready(function() {
 			paddingX: 20,
 			paddingY: 20
 		}); 
+		// Ustawiamy zmienną text block na wysokość text block głównego zdania
 		textBlock = textBlockHeight;
 		console.log(textBlock);
 		drawMainBackground();
+		context.fillStyle = 'white'; 
+		CanvasTextWrapper(canvas, finalSentence,{
+			textAlign: "center",
+			font: "bold 40px Lato",
+			lineHeight: 1.5,
+			verticalAlign: "middle",
+			strokeText: true,
+			paddingX: 20,
+			paddingY: 20
+		}); 
 		drawLowerBackground(); 
 		context.fillStyle = 'white'; 
 		CanvasTextWrapper(canvas, book_credits,{
@@ -81,6 +92,8 @@ $(document).ready(function() {
       	context.fillStyle = 'rgba(0,0,0,0.5)';
       	context.fill();
 	}
+
+	// rysujemy tło ciemniejsze pod głównym zdaniem
 	function drawMainBackground(){
 		context.beginPath();
       	context.rect(0, ((canvas.height/2)-(textBlock/2)), canvas.width, textBlock);
