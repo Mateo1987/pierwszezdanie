@@ -34,7 +34,6 @@ $(document).ready(function() {
 		// Jeśli damy funkcji argument "no", to bez szarego tła (dla białej wersji)
 		if (arguments[0] != 'no'){
 			textBlock = textBlockHeight;
-			console.log(textBlock);
 			drawMainBackground();
 			context.fillStyle = 'white'; 
 
@@ -94,10 +93,6 @@ $(document).ready(function() {
 			drawingHeight = ratio2 * cnvsHeight;
 			drawingWidth = ratio2 * cnvsWidth;
 		}
-		console.log("obrazek szerok"+imgWidth);
-		console.log("obrazek wysok "+imgHeight);
-		console.log("rysujemy: "+drawingWidth);
-		console.log("rysujemy wysok "+drawingHeight);
 	}
 
 	// rysujemy tło ciemniejsze pod napisy na dole
