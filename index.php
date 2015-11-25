@@ -40,9 +40,12 @@
 <div class="more">
   <a href=<?php echo "$chosenUrl"; ?> target="_blank">
   <img class="icon" src="img/books.png" width="32" height="32">
-  <span class ="more-text">"<?php echo $chosenTitle;?>" - pobierz za darmo na wolnelektury.pl</a></span>
+  <span class ="more-text">"<?php echo $chosenTitle;?>" - pobierz za darmo na wolnelektury.pl</span>
+  </a>
+</div>
 <footer>
-
+<a href = "https://github.com/halas/pierwszezdanie"><span>Znajdź projekt na</span>
+<img src="img/GitHub-Mark-Light-32px.png"></a>
 </footer>
 
 <!-- Google Analytics -->
