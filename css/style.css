@@ -179,9 +179,6 @@ h2 {
 	.more {
 		display:none;
 	}
-	.refresh{
-		margin-left:28%;
-	}
 }
 
 @media all and (max-width: 500px) {
