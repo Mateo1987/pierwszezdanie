@@ -5,8 +5,11 @@
     box-sizing: border-box;
 }
 
+html {
+	background-color: #F0C808;	
+}
+
 body {
-	background-color: #F0C808;
 	font-family: 'Lato', sans-serif;
 	color: white;
 	text-shadow: 2px 2px 4px #000;
