@@ -20,7 +20,7 @@
 </head>
 <body>
 <header>
-	<h1>PierwszeZdanie.pl - pierwsze zdanie z losowej powieści z Wolnych Lektur</h1>
+	<h1>PierwszeZdanie.pl<span class="details"> - pierwsze zdanie z losowej powieści z Wolnych Lektur</span></h1>
 </header>
 <canvas id="main-canvas">
 </canvas>

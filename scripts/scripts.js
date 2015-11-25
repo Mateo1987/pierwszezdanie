@@ -18,11 +18,20 @@ $(document).ready(function() {
 	}
 	dash(sentence);
 
+	// bazowy rozmiar czcionki zależnie od rozmiaru ekranu
+	var canvasFontSize = 40;
+	if (canvas.height < 720) {
+		var fontRatio = $("canvas").height()/720;
+		console.log(fontRatio);
+		canvasFontSize = canvasFontSize * fontRatio;
+	}
+	console.log(canvasFontSize);
+
 	//tekst na obrazek
 	function writeText(){
 		CanvasTextWrapper(canvas, finalSentence,{
 			textAlign: "center",
-			font: "bold 40px Lato",
+			font: "bold "+canvasFontSize+"px Lato",
 			lineHeight: 1.5,
 			verticalAlign: "middle",
 			strokeText: true,
@@ -40,7 +49,7 @@ $(document).ready(function() {
 			// Rysujemy jeszcze raz, żeby tekst był nad tłem (brzydki hack ale działa)
 			CanvasTextWrapper(canvas, finalSentence,{
 				textAlign: "center",
-				font: "bold 40px Lato",
+				font: "bold "+canvasFontSize+"px Lato",
 				lineHeight: 1.5,
 				verticalAlign: "middle",
 				strokeText: true,
@@ -56,15 +65,15 @@ $(document).ready(function() {
 		}
 		CanvasTextWrapper(canvas, book_credits,{
 			textAlign: "left",
-			font: "italic 20px Lato",
+			font: "italic "+(canvasFontSize/2)+"px Lato",
 			lineHeight: 1.5,
 			verticalAlign: "bottom",
 			paddingX: 50,
-			paddingY: 50
+			paddingY: (canvasFontSize*1.25)
 		});
 		CanvasTextWrapper(canvas, image_credits,{
 			textAlign: "left",
-			font: "italic 15px Lato",
+			font: "italic "+(canvasFontSize*0.375)+"px Lato",
 			lineHeight: 1.5,
 			verticalAlign: "bottom",
 			paddingX: 50,
@@ -72,7 +81,7 @@ $(document).ready(function() {
 		});
 		CanvasTextWrapper(canvas, us,{
 			textAlign: "right",
-			font: "italic 15px Lato",
+			font: "italic "+(canvasFontSize*0.375)+"px Lato",
 			lineHeight: 1.5,
 			verticalAlign: "bottom",
 			paddingX: 50,
@@ -83,6 +92,7 @@ $(document).ready(function() {
 	var drawingHeight;
 	var centerShiftX = 0;
 	var centerShiftY = 0;
+	
 	/*ustalamy sposób skalowania obrazka*/
 	function addjustSize (cnvsWidth,cnvsHeight,imgWidth,imgHeight){
 		var ratio = cnvsWidth/imgWidth;
@@ -98,7 +108,9 @@ $(document).ready(function() {
 	// rysujemy tło ciemniejsze pod napisy na dole
 	function drawLowerBackground(){
 		context.beginPath();
-      	context.rect(0, (canvas.height-100), canvas.width, 100);
+		// wysokość tła i jego pozycja kalkulowana na podstawie aktualnej wartości canvasFontSize 
+		// 100 px przy pełnej wysokości
+      	context.rect(0, (canvas.height-(canvasFontSize*2.5)), canvas.width, (canvasFontSize*2.5));
       	context.fillStyle = 'rgba(0,0,0,0.5)';
       	context.fill();
 	}
