@@ -20,10 +20,12 @@ $(document).ready(function() {
 
 	// bazowy rozmiar czcionki zależnie od rozmiaru ekranu
 	var canvasFontSize = 40;
+	var strokeText = true;
 	if (canvas.height < 720) {
 		var fontRatio = $("canvas").height()/720;
 		console.log(fontRatio);
-		canvasFontSize = canvasFontSize * fontRatio;
+		canvasFontSize = Math.floor(canvasFontSize * fontRatio);
+		strokeText = false;
 	}
 	console.log(canvasFontSize);
 
@@ -34,7 +36,7 @@ $(document).ready(function() {
 			font: "bold "+canvasFontSize+"px Lato",
 			lineHeight: 1.5,
 			verticalAlign: "middle",
-			strokeText: true,
+			strokeText: strokeText,
 			paddingX: 20,
 			paddingY: 20
 		}); 
@@ -52,7 +54,7 @@ $(document).ready(function() {
 				font: "bold "+canvasFontSize+"px Lato",
 				lineHeight: 1.5,
 				verticalAlign: "middle",
-				strokeText: true,
+				strokeText: strokeText,
 				paddingX: 20,
 				paddingY: 20
 			}); 
