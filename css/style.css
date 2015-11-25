@@ -181,6 +181,13 @@ h2 {
 	}
 }
 
+@media all and (max-width: 500px) {
+	canvas {
+	width: 400px;
+	height: 240px;
+	}
+}
+
 @media all and (max-width: 400px) {
 	canvas {
 	width: 300px;
