@@ -22,19 +22,24 @@
 <header>
 	<h1>PierwszeZdanie.pl<span class="details"> - pierwsze zdanie z losowej powieści z Wolnych Lektur</span></h1>
 </header>
-<canvas id="main-canvas">
-</canvas>
-<div class="options">
+<section class='canvas-section'>
+  <canvas id="main-canvas">
+  </canvas>
+  <div class = "options">
+    <div class="gear icon">
+      <img src="img/modify.png" height="32" width="32" />
+      <ul class = "options-choice">
+        <li class="picture"><div>A</div></li>
+        <li class="white"><div>A</div></li>
+        <li class="black"><div>A</div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="below-canvas">
 	<img class="refresh icon" src = "img/refresh-86.png" height="64" width="64" />
-	<div class="gear icon">
-		<img src="img/modify.png" height="32" width="32" />
-		<ul class = "options-choice">
-			<li class="picture"><div>A</div></li>
-			<li class="white"><div>A</div></li>
-			<li class="black"><div>A</div></li>
-		</ul>
 	</div>
-</div>
 <div class="social">
 </div>
 <div class="more">
