@@ -13,8 +13,8 @@
 	    var sentence = <?php echo json_encode($sentence);?>;
 	    var title = <?php echo json_encode($chosenTitle);?>;
 	    var author = <?php echo json_encode($chosenAuthor);?>;
-      var image = <?php echo json_encode($backgroundImage);?>;  
-      var credits = <?php echo json_encode($imageCredits);?>; 
+      var image = <?php echo json_encode($backgroundImage);?>;
+      var credits = <?php echo json_encode($imageCredits);?>;
   </script>
   <script type="text/javascript" src="scripts/scripts.js"></script>
 </head>
@@ -25,7 +25,7 @@
 <canvas id="main-canvas">
 </canvas>
 <div class="options">
-	<img class="refresh icon" src = "img/refresh-86.png" height="32" width="32" />
+	<img class="refresh icon" src = "img/refresh-86.png" height="64" width="64" />
 	<div class="gear icon">
 		<img src="img/modify.png" height="32" width="32" />
 		<ul class = "options-choice">
