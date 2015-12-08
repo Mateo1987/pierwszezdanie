@@ -6,7 +6,8 @@
 }
 
 html {
-	background-color: #F0C808;	
+	background-color: #F0C808;
+  height:100%;
 }
 
 body {
@@ -23,12 +24,6 @@ a:hover {
 	color: #fff;
 	text-shadow: 2px 2px 4px #4078C0;;
 }
-.invisible {
-	display:none;
-	position:relative;
-	/*Przesuniete poza ekran, by nie było widać w trakcie ładowania*/
-	top:3000px;
-}
 header {
 	background-color: black;
 	padding: 5px;
@@ -38,7 +33,7 @@ header h1 {
 	font-size: 1em;
 	font-weight: bold;
 	line-height: 1.5em;
-	margin: 0 20px;	
+	margin: 0 20px;
 }
 canvas {
 	display: block;
@@ -150,7 +145,7 @@ footer {
 	display: block;
 }
 footer span {
-	margin-left:80%;
+	margin-left:70%;
 	margin-right:5px;
 	position:relative;
 	top:-10px;
@@ -165,7 +160,7 @@ footer a:hover img {
 }
 
 
-/*responsywność*/
+/*mediaquery*/
 
 @media all and (max-width: 1200px) {
 	canvas {
@@ -186,7 +181,7 @@ footer a:hover img {
 		width: 600px;
 		margin: auto;
 	}
-	
+
 }
 
 @media all and (max-width: 768px) {
@@ -195,8 +190,9 @@ footer a:hover img {
 	height: 360px;
 	}
 	.details,
-	.gear, 
-	.more {
+	.gear,
+	.more,
+	footer {
 		display:none;
 	}
 }
