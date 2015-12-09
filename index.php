@@ -9,7 +9,6 @@
   <?php include 'php/books.php'; ?>
   <script src="bower_components/canvas-text-wrapper/canvas-text-wrapper.js"></script>
   <script type="text/javascript">
-
 	    var sentence = <?php echo json_encode($sentence);?>;
 	    var title = <?php echo json_encode($chosenTitle);?>;
 	    var author = <?php echo json_encode($chosenAuthor);?>;
@@ -34,6 +33,12 @@
         <li class="black"><div>A</div></li>
       </ul>
     </div>
+    <div class="more">
+      <a href=<?php echo "$chosenUrl"; ?> target="_blank">
+      <img class="icon" src="img/books.png" width="32" height="32">
+      <span class ="more-text">"<?php echo $chosenTitle;?>" - pobierz za darmo na wolnelektury.pl</span>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -41,12 +46,6 @@
 	<img class="refresh icon" src = "img/refresh-86.png" height="64" width="64" />
 	</div>
 <div class="social">
-</div>
-<div class="more">
-  <a href=<?php echo "$chosenUrl"; ?> target="_blank">
-  <img class="icon" src="img/books.png" width="32" height="32">
-  <span class ="more-text">"<?php echo $chosenTitle;?>" - pobierz za darmo na wolnelektury.pl</span>
-  </a>
 </div>
 <footer>
 <a href = "https://github.com/halas/pierwszezdanie"><span>Znajdź projekt na</span>
@@ -59,10 +58,8 @@
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
   ga('create', 'UA-69964309-1', 'auto');
   ga('send', 'pageview');
-
 </script>
 </body>
 </html>

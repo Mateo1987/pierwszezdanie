@@ -61,7 +61,6 @@ a:hover .icon,
 .icon:hover{
 	background: #4078C0;
 }
-.more,
 .social,
 .below-canvas {
 	width: 50%;
@@ -69,11 +68,11 @@ a:hover .icon,
 }
 .options-choice {
 	display:block;
-	width:100px;
-	height:333px;
+	width:333px;
+	height:100px;
 	position: relative;
-	top: -80px;
-	left: -90px;
+	top: -90px;
+	left: -275px;
 }
 .options-choice li {
 	background-color:#4078C0;
@@ -82,10 +81,10 @@ a:hover .icon,
 	position:relative;
 }
 .options-choice li:first-child{
-	border-radius: 5px 5px 0 0;
+	border-radius: 5px 0 0 5px;
 }
 .options-choice li:last-child{
-	border-radius: 0 0 5px 5px;
+	border-radius: 0 5px 5px 0;
 }
 .options-choice li div {
 	width: 60px;
@@ -117,15 +116,34 @@ li.white div:hover {
 	background-color: black;
 	color:white;
 }
-.gear {
+.gear,
+.more {
 	float:right;
 	width: 32px;
 	height: 32px;
+  margin: 10px 0 10px 0;
 }
-.gear:hover .options-choice li{
+.gear:hover .options-choice li {
 	display:block;
 	float:left;
 	margin: 0;
+}
+.more-text {
+  display:none;
+  text-align:center;
+}
+.more:hover .more-text {
+  display: block;
+  position: relative;
+  left: -310px;
+  width: 300px;
+  top: -35px;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #4078C0;
+}
+.more-text:hover {
+  text-decoration: underline;
 }
 .refresh:hover,
 .gear:hover {
@@ -133,15 +151,6 @@ li.white div:hover {
 }
 .refresh {
 	margin-left: 45%;
-}
-.more {
-	line-height:2em;
-	margin: 20px auto;
-	font-weight: bold;
-}
-.more img {
-	float:left;
-	margin: 0 10px;
 }
 h1 {
 	font-size: 2em;
@@ -153,6 +162,7 @@ footer {
 	background-color: black;
 	padding: 5px;
 	display: block;
+  margin-top: 20px;
 }
 footer span {
 	margin-left:70%;
