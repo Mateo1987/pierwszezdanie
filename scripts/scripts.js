@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
 	var textBlock = 0;
-    // zmienne potrzebne do rysowania obrazka
+    // variables for drawing canvas
 	var book_credits = title + ", "+author;
 	var image_credits = credits[0];
 	var canvas = document.getElementById("main-canvas");
@@ -12,13 +12,13 @@ $(document).ready(function() {
 	console.log(credits[0]);
 	console.log(image);
 
-	// zamieniamy długie myślniki na krótki
+	// change two short dashes to one
 	var dash = function(sntc){
 		finalSentence = sntc.replace(/---/g,"-");
 	}
 	dash(sentence);
 
-	// bazowy rozmiar czcionki zależnie od rozmiaru ekranu
+	// base font size + calculating smaller on smaller screens
 	var canvasFontSize = 40;
 	var strokeText = true;
 	if (canvas.height < 720) {
@@ -29,7 +29,7 @@ $(document).ready(function() {
 	}
 	console.log(canvasFontSize);
 
-	//tekst na obrazek
+	//text to be written on canvas
 	function writeText(){
 		CanvasTextWrapper(canvas, finalSentence,{
 			textAlign: "center",
@@ -39,14 +39,14 @@ $(document).ready(function() {
 			strokeText: strokeText,
 			paddingX: 20,
 			paddingY: 20
-		}); 
+		});
 
-		// Ustawiamy zmienną text block na wysokość text block głównego zdania
-		// Jeśli damy funkcji argument "no", to bez szarego tła (dla białej wersji)
+		// set textBlock variable to text height from CanvasTextWrapper textBlockHeight
+		// If we give parameter "no", there will be no background (for the white version)
 		if (arguments[0] != 'no'){
 			textBlock = textBlockHeight;
 			drawMainBackground();
-			context.fillStyle = 'white'; 
+			context.fillStyle = 'white';
 
 			// Rysujemy jeszcze raz, żeby tekst był nad tłem (brzydki hack ale działa)
 			CanvasTextWrapper(canvas, finalSentence,{
@@ -57,13 +57,13 @@ $(document).ready(function() {
 				strokeText: strokeText,
 				paddingX: 20,
 				paddingY: 20
-			}); 
+			});
 		}
 
 		// bez szarego tła jeśli do funkcji dodano parametr "no" (dla białej wersji obrazka)
 		if (arguments[0] != 'no'){
-			drawLowerBackground(); 
-			context.fillStyle = 'white'; 
+			drawLowerBackground();
+			context.fillStyle = 'white';
 		}
 		CanvasTextWrapper(canvas, book_credits,{
 			textAlign: "left",
@@ -94,7 +94,7 @@ $(document).ready(function() {
 	var drawingHeight;
 	var centerShiftX = 0;
 	var centerShiftY = 0;
-	
+
 	/*ustalamy sposób skalowania obrazka*/
 	function addjustSize (cnvsWidth,cnvsHeight,imgWidth,imgHeight){
 		var ratio = cnvsWidth/imgWidth;
@@ -110,7 +110,7 @@ $(document).ready(function() {
 	// rysujemy tło ciemniejsze pod napisy na dole
 	function drawLowerBackground(){
 		context.beginPath();
-		// wysokość tła i jego pozycja kalkulowana na podstawie aktualnej wartości canvasFontSize 
+		// wysokość tła i jego pozycja kalkulowana na podstawie aktualnej wartości canvasFontSize
 		// 100 px przy pełnej wysokości
       	context.rect(0, (canvas.height-(canvasFontSize*2.5)), canvas.width, (canvasFontSize*2.5));
       	context.fillStyle = 'rgba(0,0,0,0.5)';
@@ -142,7 +142,7 @@ $(document).ready(function() {
 	context.lineWidth = 1;
 	context.strokeStyle = "black";
 	context.fillStyle = 'white';
-	
+
 	// przycisk odśwież
 	$('.refresh').click(function(){
 		location.reload();
@@ -166,5 +166,7 @@ $(document).ready(function() {
 		context.fillStyle = "white";
 		writeText();
 	})
+
+
 
 });
