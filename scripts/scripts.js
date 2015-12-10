@@ -48,7 +48,7 @@ $(document).ready(function() {
 			drawMainBackground();
 			context.fillStyle = 'white';
 
-			// Rysujemy jeszcze raz, żeby tekst był nad tłem (brzydki hack ale działa)
+			// We draw again to have text above background (dirty hack, but works)
 			CanvasTextWrapper(canvas, finalSentence,{
 				textAlign: "center",
 				font: "bold "+canvasFontSize+"px Lato",
@@ -60,7 +60,7 @@ $(document).ready(function() {
 			});
 		}
 
-		// bez szarego tła jeśli do funkcji dodano parametr "no" (dla białej wersji obrazka)
+		// no grey background if we have "no" parameter (for white version of canvas)
 		if (arguments[0] != 'no'){
 			drawLowerBackground();
 			context.fillStyle = 'white';
@@ -68,7 +68,7 @@ $(document).ready(function() {
 		CanvasTextWrapper(canvas, book_credits,{
 			textAlign: "left",
 			font: "italic "+(canvasFontSize/2)+"px Lato",
-			lineHeight: 1.5,
+			lineHeight: 3,
 			verticalAlign: "bottom",
 			paddingX: 50,
 			paddingY: (canvasFontSize*1.25)
@@ -95,7 +95,7 @@ $(document).ready(function() {
 	var centerShiftX = 0;
 	var centerShiftY = 0;
 
-	/*ustalamy sposób skalowania obrazka*/
+	/*determine the way to scale background image*/
 	function addjustSize (cnvsWidth,cnvsHeight,imgWidth,imgHeight){
 		var ratio = cnvsWidth/imgWidth;
 		drawingWidth = imgWidth * ratio;
@@ -107,17 +107,17 @@ $(document).ready(function() {
 		}
 	}
 
-	// rysujemy tło ciemniejsze pod napisy na dole
+	// background for the texts on the bottom of the canvas
 	function drawLowerBackground(){
 		context.beginPath();
-		// wysokość tła i jego pozycja kalkulowana na podstawie aktualnej wartości canvasFontSize
-		// 100 px przy pełnej wysokości
+		// height of the grey background calculated from the canvasFontSize variable
+		// 100 px when there is full height
       	context.rect(0, (canvas.height-(canvasFontSize*2.5)), canvas.width, (canvasFontSize*2.5));
       	context.fillStyle = 'rgba(0,0,0,0.5)';
       	context.fill();
 	}
 
-	// rysujemy tło ciemniejsze pod głównym zdaniem
+	// darker background below main sentence
 	function drawMainBackground(){
 		context.beginPath();
       	context.rect(0, ((canvas.height/2)-(textBlock/2)), canvas.width, (textBlock+10));
@@ -125,7 +125,7 @@ $(document).ready(function() {
       	context.fill();
 	}
 
-		// rysujemy canvas
+		// draw canvas
 	imageObj.onload = function() {
 		addjustSize(canvas.width,canvas.height,imageObj.width,imageObj.height);
 	   	context.drawImage(imageObj, centerShiftX, centerShiftY, drawingWidth, drawingHeight);
@@ -143,12 +143,12 @@ $(document).ready(function() {
 	context.strokeStyle = "black";
 	context.fillStyle = 'white';
 
-	// przycisk odśwież
+	// refresh button
 	$('.refresh').click(function(){
 		location.reload();
 	});
 
-	//zmiana tła
+	// change background of the canvaas
 	$('.white div').click(function(){
 		context.fillStyle = "white";
 		context.fillRect(0, 0, canvas.width, canvas.height);
