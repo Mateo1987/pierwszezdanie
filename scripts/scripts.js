@@ -25,27 +25,26 @@ $(document).ready(function() {
 	var strokeText = true;
 	if (canvas.height < 720) {
 		var fontRatio = $("canvas").height()/720;
-		console.log(fontRatio);
 		canvasFontSize = Math.floor(canvasFontSize * fontRatio);
 		strokeText = false;
 		mainLineHeight = 1.5;
 	}
-	if (sentence.length > 130) {
+	if (sentence.length > 130 && $("canvas").width() < 900) {
 		canvasFontSize = canvasFontSize*0.8;
 		mainLineHeight = 4;
 	}
-	else if (sentence.length > 200){
+	else if (sentence.length > 200 && $("canvas").width() < 900){
 		canvasFontSize = canvasFontSize*0.6;
 		mainLineHeight = 5;
 	}
-	else if (sentence.length > 400) {
+	else if (sentence.length > 400 && $("canvas").width() < 900) {
 		canvasFontSize = canvasFontSize*0.2;
 		mainLineHeight = 6;
 	}
 	console.log(canvasFontSize);
 
 	// sent lineheight for book and image credits on smaller screens
-	if (canvas.width < 600) {
+	if ($("canvas").width() < 600) {
 		smallLineHeight = 3;
 	}
 
