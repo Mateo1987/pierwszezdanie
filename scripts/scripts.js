@@ -139,7 +139,7 @@ $(document).ready(function() {
 	// darker background below main sentence
 	function drawMainBackground(){
 		context.beginPath();
-      	context.rect(0, ((canvas.height/2)-(textBlock/2)), canvas.width, (textBlock+10));
+      	context.rect(0, ((canvas.height/2)-(textBlock/2)), canvas.width, (textBlock+15));
       	context.fillStyle = 'rgba(0,0,0,0.5)';
       	context.fill();
 	}
