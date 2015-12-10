@@ -27,6 +27,10 @@ a:hover {
 header {
 	background-color: black;
 	padding: 5px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
 }
 header h1 {
 	text-transform: uppercase;
@@ -53,7 +57,7 @@ a:hover .icon,
 
 /*canvas toghether with icons on the right */
 .canvas-section {
-  margin: 20px auto;
+  margin: 60px auto 20px;
   width: 1250px;
   height: 720px;
 }
@@ -188,24 +192,32 @@ footer a:hover img {
 
 /*mediaquery*/
 
-@media all and (max-width: 1200px) {
+@media (max-width: 1200px) {
 	canvas {
 	width: 900px;
 	height: 540px;
 	}
   .canvas-section {
     width: 950px;
+    height: 540px;
+  }
+  .options {
+    height: 540px;
   }
 }
 
 
-@media all and (max-width: 962px) {
+@media (max-width: 962px) {
 	canvas {
 	width: 700px;
 	height: 420px;
 	}
   .canvas-section {
     width: 750px;
+    height: 420px;
+  }
+  .options {
+    height: 420px;
   }
 
 	.social,
@@ -216,30 +228,68 @@ footer a:hover img {
 
 }
 
-@media all and (max-width: 768px) {
-	canvas {
+@media (max-width: 768px) {
+  .canvas-section,
+  canvas {
 	width: 600px;
 	height: 360px;
 	}
 
+  .social,
+  .below-canvas {
+    width: 500px;
+    margin: auto;
+  }
+
 	.details,
-	.gear,
-	.more,
+  .options,
 	footer {
 		display:none;
 	}
 }
 
-@media all and (max-width: 500px) {
-	canvas {
-	width: 400px;
-	height: 240px;
+@media (max-width: 600px) {
+  .canvas-section,
+  canvas {
+	width: 500px;
+	height: 288px;
+	}
+
+  .social,
+  .below-canvas {
+    width: 450px;
+    margin: auto;
+  }
+
+	.details,
+  .options,
+	footer {
+		display:none;
 	}
 }
 
-@media all and (max-width: 400px) {
-	canvas {
+@media (max-width: 500px) {
+  .canvas-section,
+  canvas {
+	width: 400px;
+	height: 240px;
+	}
+  .social,
+  .below-canvas {
+    width: 350px;
+    margin: auto;
+  }
+}
+
+@media (max-width: 400px) {
+  .canvas-section,
+  canvas {
 	width: 300px;
 	height: 180px;
 	}
+  .social,
+  .below-canvas {
+    width: 250px;
+    margin: auto;
+  }
 }
