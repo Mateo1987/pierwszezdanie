@@ -33,9 +33,9 @@
         <li class="black"><div>A</div></li>
       </ul>
     </div>
-    <div class="more">
+    <div class="more icon">
       <a href=<?php echo "$chosenUrl"; ?> target="_blank">
-      <img class="icon" src="img/books.png" width="32" height="32">
+      <img src="img/books.png" width="32" height="32">
       <span class ="more-text">"<?php echo $chosenTitle;?>" - pobierz za darmo na wolnelektury.pl</span>
       </a>
     </div>
