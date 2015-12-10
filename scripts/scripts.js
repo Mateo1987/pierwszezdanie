@@ -8,6 +8,8 @@ $(document).ready(function() {
 	var imageObj = new Image();
 	var finalSentence = '';
 	var us = "pierwszezdanie.pl";
+	var mainLineHeight = 1.5;
+	var smallLineHeight = 1.5;
 	console.log(sentence);
 	console.log(credits[0]);
 	console.log(image);
@@ -26,15 +28,33 @@ $(document).ready(function() {
 		console.log(fontRatio);
 		canvasFontSize = Math.floor(canvasFontSize * fontRatio);
 		strokeText = false;
+		mainLineHeight = 1.5;
+	}
+	if (sentence.length > 130) {
+		canvasFontSize = canvasFontSize*0.8;
+		mainLineHeight = 4;
+	}
+	else if (sentence.length > 200){
+		canvasFontSize = canvasFontSize*0.6;
+		mainLineHeight = 5;
+	}
+	else if (sentence.length > 400) {
+		canvasFontSize = canvasFontSize*0.2;
+		mainLineHeight = 6;
 	}
 	console.log(canvasFontSize);
+
+	// sent lineheight for book and image credits on smaller screens
+	if (canvas.width < 600) {
+		smallLineHeight = 3;
+	}
 
 	//text to be written on canvas
 	function writeText(){
 		CanvasTextWrapper(canvas, finalSentence,{
 			textAlign: "center",
 			font: "bold "+canvasFontSize+"px Lato",
-			lineHeight: 1.5,
+			lineHeight: mainLineHeight,
 			verticalAlign: "middle",
 			strokeText: strokeText,
 			paddingX: 20,
@@ -52,7 +72,7 @@ $(document).ready(function() {
 			CanvasTextWrapper(canvas, finalSentence,{
 				textAlign: "center",
 				font: "bold "+canvasFontSize+"px Lato",
-				lineHeight: 1.5,
+				lineHeight: mainLineHeight,
 				verticalAlign: "middle",
 				strokeText: strokeText,
 				paddingX: 20,
@@ -68,9 +88,9 @@ $(document).ready(function() {
 		CanvasTextWrapper(canvas, book_credits,{
 			textAlign: "left",
 			font: "italic "+(canvasFontSize/2)+"px Lato",
-			lineHeight: 3,
+			lineHeight: smallLineHeight,
 			verticalAlign: "bottom",
-			paddingX: 50,
+			paddingX: canvasFontSize,
 			paddingY: (canvasFontSize*1.25)
 		});
 		CanvasTextWrapper(canvas, image_credits,{
@@ -78,7 +98,7 @@ $(document).ready(function() {
 			font: "italic "+(canvasFontSize*0.375)+"px Lato",
 			lineHeight: 1.5,
 			verticalAlign: "bottom",
-			paddingX: 50,
+			paddingX: canvasFontSize,
 			paddingY: 5
 		});
 		CanvasTextWrapper(canvas, us,{
@@ -86,7 +106,7 @@ $(document).ready(function() {
 			font: "italic "+(canvasFontSize*0.375)+"px Lato",
 			lineHeight: 1.5,
 			verticalAlign: "bottom",
-			paddingX: 50,
+			paddingX: canvasFontSize,
 			paddingY: 5
 		});
 	}
