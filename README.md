@@ -8,10 +8,9 @@ PHP zupełnie podstawowe - do ulepszenia.
 
 
 TODO
-- responsywność
+- odświeżanie obrazka ajaxem
 - debugowanie przypadków, gdy php wyciąga puste zdanie lub fragment przedmowy tłumacza
 - dodanie obsługi innych odpowiednich typów literatury, oprócz powieści, nietypowych przypadków (np. książka zaczyna się od dialogu)
-- odświeżanie obrazka ajaxem
 - znaczek ładowania na czas ładowania zawartości
 - stały adres każdego cytatu, by dało się do niego linkować
 - link do pobrania obrazka
