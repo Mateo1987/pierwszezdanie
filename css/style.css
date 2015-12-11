@@ -14,7 +14,6 @@ body {
 	font-family: 'Lato', sans-serif;
 	color: white;
 	text-shadow: 2px 2px 4px #000;
-	height:100%;
 }
 a {
 	text-decoration: inherit;
@@ -241,7 +240,6 @@ li.white div:hover {
 .refresh {
 	margin-left: 45%;
 }
-.social,
 .below-canvas {
 	width: 50%;
 	margin: auto;
@@ -267,7 +265,7 @@ footer span img {
 	top:5px;
 }
 footer a:hover img {
-	background-color: #4078C0;
+	background-color: #666;
 	border-radius:16px;
 }
 /*mediaquery*/
@@ -296,7 +294,6 @@ footer a:hover img {
   .options {
     height: 420px;
   }
-	.social,
 	.below-canvas {
 		width: 600px;
 		margin: auto;
@@ -314,7 +311,6 @@ footer a:hover img {
   .options {
     height: 1126px;
   }
-	.social,
 	.below-canvas {
 		width: 600px;
 		margin: auto;
@@ -326,7 +322,6 @@ footer a:hover img {
 	width: 600px;
 	height: 360px;
 	}
-  .social,
   .below-canvas {
     width: 500px;
     margin: auto;
@@ -346,7 +341,6 @@ footer a:hover img {
 	width: 600px;
 	height: 996px;
 	}
-  .social,
   .below-canvas {
     width: 500px;
     margin: auto;
@@ -367,7 +361,6 @@ footer a:hover img {
 	width: 500px;
 	height: 288px;
 	}
-  .social,
   .below-canvas {
     width: 450px;
     margin: auto;
@@ -379,7 +372,6 @@ footer a:hover img {
 	width: 500px;
 	height: 830px;
 	}
-  .social,
   .below-canvas {
     width: 450px;
     margin: auto;
@@ -391,7 +383,6 @@ footer a:hover img {
 	width: 400px;
 	height: 240px;
 	}
-  .social,
   .below-canvas {
     width: 350px;
     margin: auto;
@@ -403,7 +394,6 @@ footer a:hover img {
 	width: 400px;
 	height: 664px;
 	}
-  .social,
   .below-canvas {
     width: 350px;
     margin: auto;
@@ -415,7 +405,6 @@ footer a:hover img {
 	width: 300px;
 	height: 180px;
 	}
-  .social,
   .below-canvas {
     width: 250px;
     margin: auto;
@@ -427,7 +416,6 @@ footer a:hover img {
 	width: 300px;
 	height: 498px;
 	}
-  .social,
   .below-canvas {
     width: 250px;
     margin: auto;
