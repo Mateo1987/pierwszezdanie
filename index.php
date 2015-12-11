@@ -73,8 +73,6 @@
 <div class="below-canvas">
 	<img class="refresh icon" src = "img/refresh-86.png" height="64" width="64" />
 	</div>
-<div class="social">
-</div>
 <footer>
 <a href = "https://github.com/halas/pierwszezdanie"><span>Znajdź projekt na</span>
 <img src="img/GitHub-Mark-Light-32px.png"></a>
