@@ -1,10 +1,10 @@
-<?php 
-    // biblioteka do parsowania xml
+<?php
+    // library for parsing xml
     include('simple_html_dom.php');
 
-    /*plik json dostarczony przez api wolnychlektur pobrany lokalnie, bo bardzo duży
+    /*json file from wonelektury's api stored locally, because it is really big
     https://wolnelektury.pl/api/books/
-    FIXME albo trzeba znaleźć sposób, by jednak parsować ten plik online albo wdrożyć mechanikę jego odświeżania co jakiś czas*/
+    FIXME find a way to parse it online or implement some refreshing mechanism*/
     $json = file_get_contents("./json/books.json");
     $books = json_decode($json);
     $novels = array();
@@ -17,15 +17,15 @@
     $backgroundImage = "";
     $imageCredits = "";
 
-    // wypełniamy array powieściami
+    // fill array with novels
     foreach ($books as $book) {
         if ($book->genre == "Powieść") {
             $newHref = $book->href;
             array_push($novels,$newHref);
         }
     }
-  
-    // funkcja do losowania książki
+
+    // choose random novel
     function chooseBook() {
         global $novels;
         global $chosenAuthor;
@@ -50,7 +50,7 @@
 
     function createSentence($abc){
         global $sentence;
-        //gdy zdanie nie końćzy się korpką
+        //when there is no fullstop in first paragraph
         if (strpos($abc,"/.") != false){
             $sentence = $abc.".";
         }
@@ -59,8 +59,8 @@
         }
     }
 
-    // tutaj już pracujemy na pliku xml
-    // FIXME nietypowa struktura xml, np Eugenia Grandet
+    // here we work on book xml file
+    // FIXME include fixes for atypical xml structure
     function chooseSentence($xml) {
         global $sentence;
         global $akap;
@@ -76,8 +76,7 @@
     createSentence($akap);
     }
 
-    /*funkcja do wyciągania adresu url obrazka tła z pliku xml
-    ustawia zmienne backgroundImage i imageCredits*/
+    /*find imageURL and imageCredits in book xml*/
     function getImageURl($xml){
         global $chosenXML;
         global $backgroundImage;
@@ -85,7 +84,7 @@
         $chosen_book_xml = simplexml_load_file($xml);
         $rdf = $chosen_book_xml->children("http://www.w3.org/1999/02/22-rdf-syntax-ns#");
         if (is_null($rdf)) {
-            // Na wypadek RDF wewnÄ…trz mastera.
+            // In case RDF is within master
             $rdf = $chosen_book_xml[0]->children("http://www.w3.org/1999/02/22-rdf-syntax-ns#");
         }
 
@@ -95,14 +94,12 @@
         $imageCredits = $dc->{"relation.coverImage.attribution"};
     }
 
-    /*funkcja sprawdza, czy obrazek został już pobrany. Jeśli nie, pobiera go, jeśli tak, zwraca adres pliku
-    i ustawia go jako zmienną backgroundImage*/
+    /*check if background image already downloaded, if not, download it.*/
     function imageCache($imageWWW){
         global $backgroundImage;
         // prepare file name
         $position = strpos($backgroundImage,"image/")+7;
         $fileName = substr($backgroundImage,$position);
-        // $fileName = str_replace("http://redakcja.wolnelektury.pl/media/dynamic/cover/image/","",$backgroundImage);
         // check if the file is in directory
         $fileInDirectory = "./covers/".$fileName;
         if (!file_exists($fileInDirectory)){
@@ -116,11 +113,11 @@
             $destination = $fileInDirectory;
             $file = fopen($destination, "w+");
             fputs($file, $data);
-            fclose($file); 
+            fclose($file);
         }
         $backgroundImage = $fileInDirectory;
     }
-    
+
     chooseBook();
     chooseSentence($chosenXML);
     getImageURl($chosenXML);
