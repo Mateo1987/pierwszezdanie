@@ -9,12 +9,12 @@ PHP zupełnie podstawowe - do ulepszenia.
 
 TODO
 - odświeżanie obrazka ajaxem
-- debugowanie przypadków, gdy php wyciąga puste zdanie lub fragment przedmowy tłumacza
-- dodanie obsługi innych odpowiednich typów literatury, oprócz powieści, nietypowych przypadków (np. książka zaczyna się od dialogu)
 - znaczek ładowania na czas ładowania zawartości
 - stały adres każdego cytatu, by dało się do niego linkować
 - link do pobrania obrazka
 - social share
+- debugowanie przypadków, gdy php wyciąga puste zdanie lub fragment przedmowy tłumacza
+- dodanie obsługi innych odpowiednich typów literatury, oprócz powieści, nietypowych przypadków (np. książka zaczyna się od dialogu)
 - wyszukiwanie książek po tytule
 - odświeżanie lokalnej kopii books.json lub sposób na szybsze jego parsowanie online
 
