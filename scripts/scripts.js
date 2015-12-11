@@ -1,3 +1,5 @@
+// namespace to help initialize some vars
+var myVars = {};
 $(document).ready(function() {
 
 	var textBlock = 0;
@@ -10,6 +12,8 @@ $(document).ready(function() {
 	var us = "pierwszezdanie.pl";
 	var mainLineHeight = 1.5;
 	var smallLineHeight = 1.5;
+	// for mobile menu manipulations
+	myVars.extendedOptionsHidden = true;
 	console.log(sentence);
 	console.log(credits[0]);
 	console.log(image);
@@ -186,6 +190,25 @@ $(document).ready(function() {
 		writeText();
 	})
 
-
-
+	// mobile menu showing and hiding
+	$(".burger").click(function(){
+		if (myVars.extendedOptionsHidden){
+			$(".mobile-menu").toggleClass("hidden");
+		} else {
+			$(".options-extended").addClass("hidden");
+			myVars.extendedOptionsHidden = true;
+		}
+	});
+	$(".mobile-menu .gear").click(function(){
+		event.stopPropagation();
+		$(".options-extended").removeClass("hidden");
+		$(".mobile-menu").addClass("hidden");
+		myVars.extendedOptionsHidden = !myVars.extendedOptionsHidden;
+	});
+	$(".options-extended .arrow").click(function(){
+		event.stopPropagation();
+		$(this).parent().addClass("hidden");
+		$(".mobile-menu").removeClass("hidden");
+		myVars.extendedOptionsHidden = !myVars.extendedOptionsHidden;
+	});
 });
