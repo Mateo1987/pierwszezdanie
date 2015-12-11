@@ -1,4 +1,4 @@
-// namespace to help initialize some vars
+// namespace to help initialize
 var myVars = {};
 $(document).ready(function() {
 
@@ -199,16 +199,18 @@ $(document).ready(function() {
 			myVars.extendedOptionsHidden = true;
 		}
 	});
-	$(".mobile-menu .gear").click(function(){
+	$(".mobile-menu .gear").click(function(event){
 		event.stopPropagation();
 		$(".options-extended").removeClass("hidden");
 		$(".mobile-menu").addClass("hidden");
 		myVars.extendedOptionsHidden = !myVars.extendedOptionsHidden;
 	});
-	$(".options-extended .arrow").click(function(){
+	$(".options-extended .arrow").click(function(event){
 		event.stopPropagation();
 		$(this).parent().addClass("hidden");
 		$(".mobile-menu").removeClass("hidden");
 		myVars.extendedOptionsHidden = !myVars.extendedOptionsHidden;
 	});
+
+
 });

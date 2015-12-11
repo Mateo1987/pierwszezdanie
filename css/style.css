@@ -1,6 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:400,900&subset=latin,latin-ext);
 }
-
 * {
     box-sizing: border-box;
 }
@@ -11,7 +10,6 @@ html {
 	background-color: #F0C808;
   height:100%;
 }
-
 body {
 	font-family: 'Lato', sans-serif;
 	color: white;
@@ -60,7 +58,7 @@ header h1 {
 }
 /*mobile menu*/
 .burger {
-  display:block;
+  display:none;
   float:right;
   margin-right: 10px;
   font-size: 1.3em;
@@ -104,11 +102,14 @@ header h1 {
   font-size: 0.8em;
   padding: 5px 0;
 }
-.options-extended icon {
+.options-extended {
+  background-color: white;
+}
+.options-extended .icon {
   border-radius:0;
   border-bottom: 1px solid black;
 }
-.options-extended icon:hover {
+.options-extended .icon:hover {
   background-color: #666;
 }
 .options-extended li {
@@ -118,6 +119,13 @@ header h1 {
 }
 .options-extended li div {
   margin: auto;
+  width: 60px;
+	height: 60px;
+	border:1px solid black;
+	cursor: pointer;
+	font-size: 30px;
+	text-align: center;
+	line-height: 60px;
 }
 /*canvas toghether with icons on the right */
 .canvas-section {
@@ -252,10 +260,7 @@ footer a:hover img {
 	background-color: #4078C0;
 	border-radius:16px;
 }
-
-
 /*mediaquery*/
-
 @media (max-width: 1200px) {
 	canvas {
 	width: 900px;
@@ -269,8 +274,6 @@ footer a:hover img {
     height: 540px;
   }
 }
-
-
 @media (max-width: 962px) and (orientation: landscape) {
 	canvas {
 	width: 700px;
@@ -283,15 +286,12 @@ footer a:hover img {
   .options {
     height: 420px;
   }
-
 	.social,
 	.below-canvas {
 		width: 600px;
 		margin: auto;
 	}
-
 }
-
 @media (max-width: 962px) and (orientation: portrait) {
 	canvas {
 	width: 700px;
@@ -304,15 +304,12 @@ footer a:hover img {
   .options {
     height: 1126px;
   }
-
 	.social,
 	.below-canvas {
 		width: 600px;
 		margin: auto;
 	}
-
 }
-
 @media (max-width: 768px) and (orientation: landscape){
   .canvas-section,
   canvas {
@@ -329,70 +326,55 @@ footer a:hover img {
 	footer {
 		display:none;
 	}
-
+  .burger {
+    display:block;
+  }
 }
-
 @media (max-width: 768px) and (orientation: portrait){
   .canvas-section,
   canvas {
 	width: 600px;
 	height: 996px;
 	}
-
   .social,
   .below-canvas {
     width: 500px;
     margin: auto;
   }
-
 	.details,
   .options,
 	footer {
 		display:none;
 	}
+  /*FIXME this class activated causes page not to load anything inside <body>*/
+  /*.burger {
+    display:block;
+  }*/
 }
-
 @media (max-width: 600px) and (orientation: landscape){
   .canvas-section,
   canvas {
 	width: 500px;
 	height: 288px;
 	}
-
   .social,
   .below-canvas {
     width: 450px;
     margin: auto;
   }
-
-	.details,
-  .options,
-	footer {
-		display:none;
-	}
 }
-
 @media (max-width: 600px) and (orientation: portrait){
   .canvas-section,
   canvas {
 	width: 500px;
 	height: 830px;
 	}
-
   .social,
   .below-canvas {
     width: 450px;
     margin: auto;
   }
-
-	.details,
-  .options,
-	footer {
-		display:none;
-	}
 }
-
-
 @media (max-width: 500px) and (orientation: landscape){
   .canvas-section,
   canvas {
@@ -405,7 +387,6 @@ footer a:hover img {
     margin: auto;
   }
 }
-
 @media (max-width: 500px) and (orientation: portrait){
   .canvas-section,
   canvas {
@@ -418,7 +399,6 @@ footer a:hover img {
     margin: auto;
   }
 }
-
 @media (max-width: 400px) and (orientation: landscape){
   .canvas-section,
   canvas {
@@ -431,7 +411,6 @@ footer a:hover img {
     margin: auto;
   }
 }
-
 @media (max-width: 400px) and (orientation: portrait){
   .canvas-section,
   canvas {
