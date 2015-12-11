@@ -22,7 +22,7 @@ a {
 }
 a:hover {
 	color: #fff;
-	text-shadow: 2px 2px 4px #4078C0;;
+	text-shadow: 2px 2px 4px #666;;
 }
 h1 {
 	font-size: 2em;
@@ -36,7 +36,7 @@ h2 {
 }
 a:hover .icon,
 .icon:hover{
-	background: #4078C0;
+	background: #666;
   cursor:pointer;
 }
 header {
@@ -116,6 +116,10 @@ header h1 {
   display: block;
   width: 100%;
   border-bottom: 1px solid black;
+  padding: 5px 0;
+}
+.options-extended li:hover {
+  background-color: #666;
 }
 .options-extended li div {
   margin: auto;
@@ -126,6 +130,12 @@ header h1 {
 	font-size: 30px;
 	text-align: center;
 	line-height: 60px;
+}
+.options-extended li div:hover {
+  border: 1px solid black;
+}
+.options-extended li.white div:hover {
+  border: 1px solid black;
 }
 /*canvas toghether with icons on the right */
 .canvas-section {
@@ -156,7 +166,7 @@ canvas {
 	left: -275px;
 }
 .options-choice li {
-	background-color:#4078C0;
+	background-color:#666;
 	display:none;
 	height: 90px;
 	position:relative;
@@ -222,7 +232,7 @@ li.white div:hover {
   top: -35px;
   padding: 5px;
   border-radius: 5px;
-  background-color: #4078C0;
+  background-color: #666;
 }
 .more-text:hover {
   text-decoration: underline;
