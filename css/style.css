@@ -356,10 +356,10 @@ footer a:hover img {
 	footer {
 		display:none;
 	}
-  /*FIXME this class activated causes page not to load anything inside <body>*/
-  /*.burger {
-    display:block;
-  }*/
+  /*for some reason when this is block it causes page not to load anything inside <body>*/
+  .burger {
+    display:inline-block;
+  }
 }
 @media (max-width: 600px) and (orientation: landscape){
   .canvas-section,
