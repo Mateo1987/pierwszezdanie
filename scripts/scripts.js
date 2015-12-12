@@ -18,6 +18,24 @@ $(document).ready(function() {
 	console.log(credits[0]);
 	console.log(image);
 
+	function getBook(){
+		$.ajax({
+		        url : 'http://hadora.pl/pierwszezdanie/get_book.php',
+		        type : 'POST',
+		        dataType : 'json',
+		        success : function (result) {
+							console.log(result['sentence']);
+							console.log(result['title']);
+							console.log(result['author']);
+							console.log(result['image']);
+							console.log(result['credits']);
+		        },
+		        error : function () {
+		           console.log("error");
+		        }
+		    })
+	}
+
 	// change two short dashes to one
 	var dash = function(sntc){
 		finalSentence = sntc.replace(/---/g,"-");
@@ -27,30 +45,36 @@ $(document).ready(function() {
 	// base font size + calculating smaller on smaller screens
 	var canvasFontSize = 40;
 	var strokeText = true;
-	if (canvas.height < 720) {
-		var fontRatio = $("canvas").height()/720;
-		canvasFontSize = Math.floor(canvasFontSize * fontRatio);
-		strokeText = false;
-		mainLineHeight = 1.5;
+	function calculateFonts(){
+		if (canvas.height < 720) {
+			var fontRatio = $("canvas").height()/720;
+			canvasFontSize = Math.floor(canvasFontSize * fontRatio);
+			strokeText = false;
+			mainLineHeight = 1.5;
+		}
+		if (sentence.length > 130 && $("canvas").width() < 900) {
+			canvasFontSize = canvasFontSize*0.8;
+			mainLineHeight = 4;
+		}
+		else if (sentence.length > 200 && $("canvas").width() < 900){
+			canvasFontSize = canvasFontSize*0.6;
+			mainLineHeight = 5;
+		}
+		else if (sentence.length > 400 && $("canvas").width() < 900) {
+			canvasFontSize = canvasFontSize*0.2;
+			mainLineHeight = 6;
+		}
+		console.log(canvasFontSize);
 	}
-	if (sentence.length > 130 && $("canvas").width() < 900) {
-		canvasFontSize = canvasFontSize*0.8;
-		mainLineHeight = 4;
-	}
-	else if (sentence.length > 200 && $("canvas").width() < 900){
-		canvasFontSize = canvasFontSize*0.6;
-		mainLineHeight = 5;
-	}
-	else if (sentence.length > 400 && $("canvas").width() < 900) {
-		canvasFontSize = canvasFontSize*0.2;
-		mainLineHeight = 6;
-	}
-	console.log(canvasFontSize);
+
 
 	// sent lineheight for book and image credits on smaller screens
-	if ($("canvas").width() < 600) {
-		smallLineHeight = 3;
+	function lineHeight(){
+		if ($("canvas").width() < 600) {
+			smallLineHeight = 3;
+		}
 	}
+
 
 	//text to be written on canvas
 	function writeText(){
@@ -149,26 +173,32 @@ $(document).ready(function() {
 	}
 
 		// draw canvas
-	imageObj.onload = function() {
-		addjustSize(canvas.width,canvas.height,imageObj.width,imageObj.height);
-	   	context.drawImage(imageObj, centerShiftX, centerShiftY, drawingWidth, drawingHeight);
-	   	writeText();
-	};
-	imageObj.onerror = function() {
-		console.log("image error");
+	function drawCanvas(){
+		imageObj.onload = function() {
+			calculateFonts();
+			lineHeight();
+			addjustSize(canvas.width,canvas.height,imageObj.width,imageObj.height);
+		   	context.drawImage(imageObj, centerShiftX, centerShiftY, drawingWidth, drawingHeight);
+		   	writeText();
+		};
+		imageObj.onerror = function() {
+			console.log("image error");
+		}
+
+		imageObj.src = image;
+		canvas.width = $("canvas").width();
+		canvas.height = $("canvas").height();
+		context = canvas.getContext("2d");
+		context.lineWidth = 1;
+		context.strokeStyle = "black";
+		context.fillStyle = 'white';
 	}
 
-	imageObj.src = image;
-	canvas.width = $("canvas").width();
-	canvas.height = $("canvas").height();
-	context = canvas.getContext("2d");
-	context.lineWidth = 1;
-	context.strokeStyle = "black";
-	context.fillStyle = 'white';
+	drawCanvas();
 
 	// refresh button
 	$('.refresh').click(function(){
-		location.reload();
+		getBook();
 	});
 
 	// change background of the canvaas
