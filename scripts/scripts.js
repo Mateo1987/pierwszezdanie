@@ -2,6 +2,12 @@
 var myVars = {};
 $(document).ready(function() {
 
+	var sentence = '';
+	var title = '';
+	var author = '';
+	var image = '';
+	var credits = '';
+
 	var textBlock = 0;
     // variables for drawing canvas
 	var book_credits = title + ", "+author;
@@ -19,16 +25,18 @@ $(document).ready(function() {
 	console.log(image);
 
 	function getBook(){
+		console.log("start");
 		$.ajax({
 		        url : 'http://hadora.pl/pierwszezdanie/get_book.php',
 		        type : 'POST',
 		        dataType : 'json',
 		        success : function (result) {
-							console.log(result['sentence']);
-							console.log(result['title']);
-							console.log(result['author']);
-							console.log(result['image']);
-							console.log(result['credits']);
+							sentence = result['sentence'];
+							title = result['title'];
+							author = result['author'];
+							image = result['image'];
+							credits = result['credits'];
+							console.log(sentence);
 		        },
 		        error : function () {
 		           console.log("error");
@@ -199,6 +207,7 @@ $(document).ready(function() {
 	// refresh button
 	$('.refresh').click(function(){
 		getBook();
+		drawCanvas();
 	});
 
 	// change background of the canvaas
