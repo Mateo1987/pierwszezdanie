@@ -24,7 +24,7 @@ $(document).ready(function() {
 	console.log(credits[0]);
 	console.log(image);
 
-	function getBook(){
+	function getBook(callback){
 		console.log("start");
 		$.ajax({
 		        url : 'http://hadora.pl/pierwszezdanie/get_book.php',
@@ -42,6 +42,7 @@ $(document).ready(function() {
 		           console.log("error");
 		        }
 		    })
+		callback();
 	}
 
 	// change two short dashes to one
@@ -206,8 +207,9 @@ $(document).ready(function() {
 
 	// refresh button
 	$('.refresh').click(function(){
-		getBook();
-		drawCanvas();
+		getBook(function(){
+			alert(author);
+			});
 	});
 
 	// change background of the canvaas
