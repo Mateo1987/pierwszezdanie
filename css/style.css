@@ -142,22 +142,37 @@ header h1 {
   width: 1250px;
   height: 720px;
 }
-canvas {
+.canvas {
 	display: block;
 	border: 4px solid black;
 	width: 1200px;
 	height: 720px;
   float:left;
 }
-.loading {
-  background-color: #666;
+div.for-canvas {
+  position:relative;
+  border: none;
 }
+.behind-canvas {
+  background-color: #666;
+  position:absolute;
+  border: 4px solid black;
+  width: 100%;
+  height: 100%;
+}
+.behind-canvas span {
+  display: block;
+  width: 50%;
+  margin: 20% auto;
+  text-align: center;
+}
+
 /*options button and menu*/
 .options {
   width: 19px;
   height: 720px;
   float: left;
-  margin: 15px 0 0 20px;
+  margin: 15px 0 0 30px;
 }
 .options-choice {
 	display:block;

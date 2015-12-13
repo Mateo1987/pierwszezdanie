@@ -42,8 +42,14 @@
   </div>
 </header>
 <section class='canvas-section'>
-  <canvas class='loading' id="main-canvas">
-  </canvas>
+  <div class='for-canvas canvas'>
+    <canvas class='canvas' id="main-canvas">
+    </canvas>
+    <div class='behind-canvas'>
+    <span>Czekaj, trwa ładowanie pierwszego zdania</span>
+    <div class="sp-circle"></div>
+    </div>
+  </div>
   <div class = "options">
     <div class="gear icon">
       <img src="img/modify.png" height="32" width="32" />
