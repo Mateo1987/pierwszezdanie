@@ -5,9 +5,9 @@
   <title>Pierwsze zdanie losowej powieśi z wolnych lektur - beta</title>
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/style.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="bower_components/canvas-text-wrapper/canvas-text-wrapper.js"></script>
-  <script type="text/javascript" src="scripts/scripts.js"></script>
+  <script async src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script async src="bower_components/canvas-text-wrapper/canvas-text-wrapper.js"></script>
+  <script async type="text/javascript" src="scripts/scripts.js"></script>
 </head>
 <body>
 <header>
@@ -18,7 +18,7 @@
         <img src="img/modify.png" height="32" width="32" />
       </div>
       <div class="more icon">
-        <a href=""> target="_blank">
+        <a href="" target="_blank">
         <img src="img/books.png" width="32" height="32">
         <span></span>
         </a>

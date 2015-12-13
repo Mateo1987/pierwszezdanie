@@ -73,6 +73,8 @@ header h1 {
   position: relative;
   left: 15px;
   top: 3px;
+  /*to show above canvas*/
+  z-index:100;
 }
 .mobile-menu .gear,
 .mobile-menu .more,
@@ -407,6 +409,10 @@ footer a:hover img {
   /*for some reason when this is block it causes page not to load anything inside <body>*/
   .burger {
     display:inline-block;
+  }
+
+  .refresh {
+    margin-left:40%;
   }
 }
 @media (max-width: 600px) and (orientation: landscape){
