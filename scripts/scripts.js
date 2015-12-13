@@ -44,8 +44,8 @@ $(document).ready(function() {
 		$(".more a").each(function(){
 			$(this).attr('href',lnk);
 		});
-		$('.more span').text(ttle+" -pobierz za darmow na wolnelektury.pl");
-		$('.more-text').text(ttle+" -pobierz za darmow na wolnelektury.pl");
+		$('.more span').text(ttle+" - pobierz za darmo na wolnelektury.pl");
+		$('.more-text').text(ttle+" - pobierz za darmo na wolnelektury.pl");
 	}
 
 
@@ -110,7 +110,7 @@ $(document).ready(function() {
 
 		// set textBlock variable to text height from CanvasTextWrapper textBlockHeight
 		// If we give parameter "no", there will be no background (for the white version)
-		if (arguments[0] != 'no'){
+		if (arguments[4] != 'no'){
 			textBlock = textBlockHeight;
 			drawMainBackground();
 			context.fillStyle = 'white';
@@ -128,7 +128,8 @@ $(document).ready(function() {
 		}
 
 		// no grey background if we have "no" parameter (for white version of canvas)
-		if (arguments[0] != 'no'){
+		if (arguments[4] != 'no'){
+			console.log(arguments[0]);
 			drawLowerBackground(canvasFontSize);
 			context.fillStyle = 'white';
 		}
@@ -223,33 +224,29 @@ $(document).ready(function() {
 
 	// refresh button
 	$('.refresh').click(function(){
-		// clearCanvas();
+
 		getBook();
 	});
 
-	$('canvas').bind('ajaxStart', function(){
-    clearCanvas();
-	}).bind('ajaxStop', function(){
-    console.log("stop");
-	});
+
 
 	// change background of the canvaas
 	$('.white div').click(function(){
 		context.fillStyle = "white";
 		context.fillRect(0, 0, canvas.width, canvas.height);
 		context.fillStyle = "black";
-		writeText('no');
+		writeText(sentence,title,author,credits,'no');
 	})
 	$('.black div').click(function(){
 		context.fillStyle = "black";
 		context.fillRect(0, 0, canvas.width, canvas.height);
 		context.fillStyle = "white";
-		writeText();
+		writeText(sentence,title,author,credits);
 	})
 	$('.picture div').click(function(){
 		context.drawImage(imageObj, centerShiftX, centerShiftY, drawingWidth, drawingHeight);
 		context.fillStyle = "white";
-		writeText();
+		writeText(sentence,title,author,credits);
 	})
 
 	// mobile menu showing and hiding
