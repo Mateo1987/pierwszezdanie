@@ -10,11 +10,9 @@ $(document).ready(function() {
 
 	var textBlock = 0;
     // variables for drawing canvas
-	var book_credits = title + ", "+author;
-	var image_credits = credits[0];
+
 	var canvas = document.getElementById("main-canvas");
 	var imageObj = new Image();
-	var finalSentence = '';
 	var us = "pierwszezdanie.pl";
 	var mainLineHeight = 1.5;
 	var smallLineHeight = 1.5;
@@ -24,7 +22,7 @@ $(document).ready(function() {
 	console.log(credits[0]);
 	console.log(image);
 
-	function getBook(callback){
+	function getBook(){
 		console.log("start");
 		$.ajax({
 		        url : 'http://hadora.pl/pierwszezdanie/get_book.php',
@@ -36,20 +34,14 @@ $(document).ready(function() {
 							author = result['author'];
 							image = result['image'];
 							credits = result['credits'];
-							console.log(sentence);
+							drawCanvas(sentence,title,author,credits,image);
 		        },
 		        error : function () {
 		           console.log("error");
 		        }
 		    })
-		callback();
 	}
 
-	// change two short dashes to one
-	var dash = function(sntc){
-		finalSentence = sntc.replace(/---/g,"-");
-	}
-	dash(sentence);
 
 	// base font size + calculating smaller on smaller screens
 	var canvasFontSize = 40;
@@ -86,7 +78,10 @@ $(document).ready(function() {
 
 
 	//text to be written on canvas
-	function writeText(){
+	function writeText(sntc,ttle,athor,crdts){
+		var book_credits = ttle + ", "+athor;
+		var image_credits = crdts[0];
+		var finalSentence = sntc.replace(/---/g,"-");
 		CanvasTextWrapper(canvas, finalSentence,{
 			textAlign: "center",
 			font: "bold "+canvasFontSize+"px Lato",
@@ -182,19 +177,19 @@ $(document).ready(function() {
 	}
 
 		// draw canvas
-	function drawCanvas(){
+	function drawCanvas(sntc,ttle,athor,crdts,imge){
 		imageObj.onload = function() {
 			calculateFonts();
 			lineHeight();
 			addjustSize(canvas.width,canvas.height,imageObj.width,imageObj.height);
 		   	context.drawImage(imageObj, centerShiftX, centerShiftY, drawingWidth, drawingHeight);
-		   	writeText();
+		   	writeText(sntc,ttle,athor,crdts);
 		};
 		imageObj.onerror = function() {
 			console.log("image error");
 		}
 
-		imageObj.src = image;
+		imageObj.src = imge;
 		canvas.width = $("canvas").width();
 		canvas.height = $("canvas").height();
 		context = canvas.getContext("2d");
@@ -203,7 +198,6 @@ $(document).ready(function() {
 		context.fillStyle = 'white';
 	}
 
-	drawCanvas();
 
 	// refresh button
 	$('.refresh').click(function(){
@@ -253,5 +247,6 @@ $(document).ready(function() {
 		myVars.extendedOptionsHidden = !myVars.extendedOptionsHidden;
 	});
 
+	getBook();
 
 });
