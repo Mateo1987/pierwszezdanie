@@ -18,10 +18,8 @@ $(document).ready(function() {
 	var smallLineHeight = 1.5;
 	// for mobile menu manipulations
 	myVars.extendedOptionsHidden = true;
-	console.log(sentence);
-	console.log(credits[0]);
-	console.log(image);
 
+	// make ajax call for new book data and draw canvas on success
 	function getBook(){
 		console.log("start");
 		$.ajax({
@@ -34,12 +32,22 @@ $(document).ready(function() {
 							author = result['author'];
 							image = result['image'];
 							credits = result['credits'];
+							bookUrl = result['bookUrl'];
 							drawCanvas(sentence,title,author,credits,image);
+							updateLink(title,bookUrl);
 		        },
 		        error : function () {
 		           console.log("error");
 		        }
 		    })
+	}
+
+	function updateLink(ttle,lnk){
+		$(".more a").each(function(){
+			$(this).attr('href',lnk);
+		});
+		$('.more span').text(ttle+" -pobierz za darmow na wolnelektury.pl");
+		$('.more-text').text(ttle+" -pobierz za darmow na wolnelektury.pl");
 	}
 
 
@@ -81,6 +89,7 @@ $(document).ready(function() {
 	function writeText(sntc,ttle,athor,crdts){
 		var book_credits = ttle + ", "+athor;
 		var image_credits = crdts[0];
+		// replace two dashes with one
 		var finalSentence = sntc.replace(/---/g,"-");
 		CanvasTextWrapper(canvas, finalSentence,{
 			textAlign: "center",

@@ -7,6 +7,7 @@ $books_data = array(
   'author' => $chosenAuthor,
   'image' => $backgroundImage,
   'credits' => $imageCredits,
+  'bookUrl' => $chosenUrl
  );
  echo(json_encode($books_data));
 
