@@ -59,13 +59,11 @@ $(document).ready(function() {
 		if (canvas.height < 720 && canvas.width > canvas.height) {
 			var fontRatio = $("canvas").height()/720;
 			cnvsFntSze = Math.floor(cnvsFntSze * fontRatio);
-			strokeText = false;
 			return [1.5, cnvsFntSze];
 		}
 		else if (canvas.width < 400 && canvas.width < canvas.height) {
 			var fontRatio = $("canvas").width()/720;
 			cnvsFntSze = Math.floor(cnvsFntSze * fontRatio);
-			strokeText = false;
 			return [1.5, cnvsFntSze];
 		}
 		if (sentence.length > 130 && $("canvas").width() < 900) {
@@ -105,6 +103,9 @@ $(document).ready(function() {
 		var smallLineHeight = lineHeight();
 		var book_credits = ttle + ", "+athor;
 		var image_credits = crdts[0];
+		if (canvasFontSize < 36) {
+			var strokeText = false;
+		}
 		// replace two dashes with one
 		var finalSentence = sntc.replace(/---/g,"-");
 		CanvasTextWrapper(canvas, finalSentence,{
