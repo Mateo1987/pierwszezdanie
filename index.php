@@ -6,15 +6,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/style.css">
-  <?php include 'php/books.php'; ?>
   <script src="bower_components/canvas-text-wrapper/canvas-text-wrapper.js"></script>
-  <script type="text/javascript">
-	    var sentence = <?php echo json_encode($sentence);?>;
-	    var title = <?php echo json_encode($chosenTitle);?>;
-	    var author = <?php echo json_encode($chosenAuthor);?>;
-      var image = <?php echo json_encode($backgroundImage);?>;
-      var credits = <?php echo json_encode($imageCredits);?>;
-  </script>
   <script type="text/javascript" src="scripts/scripts.js"></script>
 </head>
 <body>
