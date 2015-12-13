@@ -56,8 +56,14 @@ $(document).ready(function() {
 	// calculate line height and font size depending on screen size and sentence length
 	function calculateFonts(){
 		var cnvsFntSze = 40;
-		if (canvas.height < 720) {
+		if (canvas.height < 720 && canvas.width > canvas.height) {
 			var fontRatio = $("canvas").height()/720;
+			cnvsFntSze = Math.floor(cnvsFntSze * fontRatio);
+			strokeText = false;
+			return [1.5, cnvsFntSze];
+		}
+		else if (canvas.width < 400 && canvas.width < canvas.height) {
+			var fontRatio = $("canvas").width()/720;
 			cnvsFntSze = Math.floor(cnvsFntSze * fontRatio);
 			strokeText = false;
 			return [1.5, cnvsFntSze];
