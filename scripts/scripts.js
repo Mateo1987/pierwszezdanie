@@ -50,29 +50,29 @@ $(document).ready(function() {
 
 
 	// base font size + calculating smaller on smaller screens
-	var canvasFontSize = 40;
-	var strokeText = true;
+
 	function calculateFonts(){
+		var cnvsFntSze = 40;
 		if (canvas.height < 720) {
 			var fontRatio = $("canvas").height()/720;
-			canvasFontSize = Math.floor(canvasFontSize * fontRatio);
+			cnvsFntSze = Math.floor(cnvsFntSze * fontRatio);
 			strokeText = false;
-			return 1.5;
+			return [1.5, cnvsFntSze];
 		}
 		if (sentence.length > 130 && $("canvas").width() < 900) {
-			canvasFontSize = canvasFontSize*0.8;
-			return 4;
+			cnvsFntSze = cnvsFntSze*0.8;
+			return [4, cnvsFntSze];
 		}
 		else if (sentence.length > 200 && $("canvas").width() < 900){
-			canvasFontSize = canvasFontSize*0.6;
-			return 5;
+			cnvsFntSze = cnvsFntSze*0.6;
+			return [5, cnvsFntSze];
 		}
 		else if (sentence.length > 400 && $("canvas").width() < 900) {
-			canvasFontSize = canvasFontSize*0.2;
-			return 6;
+			cnvsFntSze = cnvsFntSze*0.2;
+			return [6, cnvsFntSze];
 		}
 		else {
-			return 1.5;
+			return [1.5, cnvsFntSze];
 		}
 	}
 
@@ -90,7 +90,9 @@ $(document).ready(function() {
 
 	//text to be written on canvas
 	function writeText(sntc,ttle,athor,crdts){
-		var mainLineHeight = calculateFonts();
+		var canvasFontSize = calculateFonts()[1];
+		var strokeText = true;
+		var mainLineHeight = calculateFonts()[0];
 		var smallLineHeight = lineHeight();
 		var book_credits = ttle + ", "+athor;
 		var image_credits = crdts[0];
@@ -127,7 +129,7 @@ $(document).ready(function() {
 
 		// no grey background if we have "no" parameter (for white version of canvas)
 		if (arguments[0] != 'no'){
-			drawLowerBackground();
+			drawLowerBackground(canvasFontSize);
 			context.fillStyle = 'white';
 		}
 		CanvasTextWrapper(canvas, book_credits,{
@@ -173,11 +175,11 @@ $(document).ready(function() {
 	}
 
 	// background for the texts on the bottom of the canvas
-	function drawLowerBackground(){
+	function drawLowerBackground(fntSize){
 		context.beginPath();
 		// height of the grey background calculated from the canvasFontSize variable
 		// 100 px when there is full height
-      	context.rect(0, (canvas.height-(canvasFontSize*2.5)), canvas.width, (canvasFontSize*2.5));
+      	context.rect(0, (canvas.height-(fntSize*2.5)), canvas.width, (fntSize*2.5));
       	context.fillStyle = 'rgba(0,0,0,0.5)';
       	context.fill();
 	}
