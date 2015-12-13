@@ -324,7 +324,7 @@ footer a:hover img {
 }
 /*mediaquery*/
 @media (max-width: 1200px) {
-	canvas {
+	.canvas {
 	width: 900px;
 	height: 540px;
 	}
@@ -337,7 +337,7 @@ footer a:hover img {
   }
 }
 @media (max-width: 962px) and (orientation: landscape) {
-	canvas {
+	.canvas {
 	width: 700px;
 	height: 420px;
 	}
@@ -354,7 +354,7 @@ footer a:hover img {
 	}
 }
 @media (max-width: 962px) and (orientation: portrait) {
-	canvas {
+	.canvas {
 	width: 700px;
 	height: 1126px;
 	}
@@ -372,7 +372,7 @@ footer a:hover img {
 }
 @media (max-width: 768px) and (orientation: landscape){
   .canvas-section,
-  canvas {
+  .canvas {
 	width: 600px;
 	height: 360px;
 	}
@@ -391,7 +391,7 @@ footer a:hover img {
 }
 @media (max-width: 768px) and (orientation: portrait){
   .canvas-section,
-  canvas {
+  .canvas {
 	width: 600px;
 	height: 996px;
 	}
@@ -411,7 +411,7 @@ footer a:hover img {
 }
 @media (max-width: 600px) and (orientation: landscape){
   .canvas-section,
-  canvas {
+  .canvas {
 	width: 500px;
 	height: 288px;
 	}
@@ -422,7 +422,7 @@ footer a:hover img {
 }
 @media (max-width: 600px) and (orientation: portrait){
   .canvas-section,
-  canvas {
+  .canvas {
 	width: 500px;
 	height: 830px;
 	}
@@ -433,7 +433,7 @@ footer a:hover img {
 }
 @media (max-width: 500px) and (orientation: landscape){
   .canvas-section,
-  canvas {
+  .canvas {
 	width: 400px;
 	height: 240px;
 	}
@@ -444,7 +444,7 @@ footer a:hover img {
 }
 @media (max-width: 500px) and (orientation: portrait){
   .canvas-section,
-  canvas {
+  .canvas {
 	width: 400px;
 	height: 664px;
 	}
@@ -455,7 +455,7 @@ footer a:hover img {
 }
 @media (max-width: 400px) and (orientation: landscape){
   .canvas-section,
-  canvas {
+  .canvas {
 	width: 300px;
 	height: 180px;
 	}
@@ -466,7 +466,7 @@ footer a:hover img {
 }
 @media (max-width: 400px) and (orientation: portrait){
   .canvas-section,
-  canvas {
+  .canvas {
 	width: 300px;
 	height: 498px;
 	}
