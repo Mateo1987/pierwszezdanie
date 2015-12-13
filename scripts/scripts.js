@@ -207,12 +207,19 @@ $(document).ready(function() {
 		context.fillStyle = 'white';
 	}
 
+	// clear canvas
+	function clearCanvas(){
+		context.clearRect(0, 0, canvas.width, canvas.height);
+		canvas.width = $("canvas").width();
+		canvas.height = $("canvas").height();
+		context = canvas.getContext("2d");
+	}
+
 
 	// refresh button
 	$('.refresh').click(function(){
-		getBook(function(){
-			alert(author);
-			});
+		clearCanvas();
+		getBook();
 	});
 
 	// change background of the canvaas

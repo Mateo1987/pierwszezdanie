@@ -149,6 +149,9 @@ canvas {
 	height: 720px;
   float:left;
 }
+.loading {
+  background-color: #666;
+}
 /*options button and menu*/
 .options {
   width: 19px;

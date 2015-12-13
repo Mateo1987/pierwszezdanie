@@ -42,7 +42,7 @@
   </div>
 </header>
 <section class='canvas-section'>
-  <canvas id="main-canvas">
+  <canvas class='loading' id="main-canvas">
   </canvas>
   <div class = "options">
     <div class="gear icon">
