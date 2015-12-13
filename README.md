@@ -1,18 +1,13 @@
 # PierwszeZdanie
-Na tę chwilę work in progress :)
 
 Prosta stronka prezentująca pierwsze zdanie z losowej powieści z wolnych lektur
 http://pierwszezdanie.pl
 
-PHP zupełnie podstawowe - do ulepszenia.
-
-
 TODO
-- odświeżanie obrazka ajaxem
-- znaczek ładowania na czas ładowania zawartości
-- stały adres każdego cytatu, by dało się do niego linkować
+
 - link do pobrania obrazka
 - social share
+- stały adres każdego cytatu, by dało się do niego linkować
 - debugowanie przypadków, gdy php wyciąga puste zdanie lub fragment przedmowy tłumacza
 - dodanie obsługi innych odpowiednich typów literatury, oprócz powieści, nietypowych przypadków (np. książka zaczyna się od dialogu)
 - wyszukiwanie książek po tytule
