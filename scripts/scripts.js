@@ -10,12 +10,10 @@ $(document).ready(function() {
 
 	var textBlock = 0;
     // variables for drawing canvas
-
 	var canvas = document.getElementById("main-canvas");
 	var imageObj = new Image();
 	var us = "pierwszezdanie.pl";
-	var mainLineHeight = 1.5;
-	var smallLineHeight = 1.5;
+
 	// for mobile menu manipulations
 	myVars.extendedOptionsHidden = true;
 
@@ -59,34 +57,41 @@ $(document).ready(function() {
 			var fontRatio = $("canvas").height()/720;
 			canvasFontSize = Math.floor(canvasFontSize * fontRatio);
 			strokeText = false;
-			mainLineHeight = 1.5;
+			return 1.5;
 		}
 		if (sentence.length > 130 && $("canvas").width() < 900) {
 			canvasFontSize = canvasFontSize*0.8;
-			mainLineHeight = 4;
+			return 4;
 		}
 		else if (sentence.length > 200 && $("canvas").width() < 900){
 			canvasFontSize = canvasFontSize*0.6;
-			mainLineHeight = 5;
+			return 5;
 		}
 		else if (sentence.length > 400 && $("canvas").width() < 900) {
 			canvasFontSize = canvasFontSize*0.2;
-			mainLineHeight = 6;
+			return 6;
 		}
-		console.log(canvasFontSize);
+		else {
+			return 1.5;
+		}
 	}
 
 
 	// sent lineheight for book and image credits on smaller screens
 	function lineHeight(){
 		if ($("canvas").width() < 600) {
-			smallLineHeight = 3;
+			return 3;
+		}
+		else {
+			return 1.5;
 		}
 	}
 
 
 	//text to be written on canvas
 	function writeText(sntc,ttle,athor,crdts){
+		var mainLineHeight = calculateFonts();
+		var smallLineHeight = lineHeight();
 		var book_credits = ttle + ", "+athor;
 		var image_credits = crdts[0];
 		// replace two dashes with one
@@ -188,8 +193,6 @@ $(document).ready(function() {
 		// draw canvas
 	function drawCanvas(sntc,ttle,athor,crdts,imge){
 		imageObj.onload = function() {
-			calculateFonts();
-			lineHeight();
 			addjustSize(canvas.width,canvas.height,imageObj.width,imageObj.height);
 		   	context.drawImage(imageObj, centerShiftX, centerShiftY, drawingWidth, drawingHeight);
 		   	writeText(sntc,ttle,athor,crdts);
@@ -218,8 +221,14 @@ $(document).ready(function() {
 
 	// refresh button
 	$('.refresh').click(function(){
-		clearCanvas();
+		// clearCanvas();
 		getBook();
+	});
+
+	$('canvas').bind('ajaxStart', function(){
+    clearCanvas();
+	}).bind('ajaxStop', function(){
+    console.log("stop");
 	});
 
 	// change background of the canvaas
