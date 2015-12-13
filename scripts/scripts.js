@@ -31,7 +31,7 @@ $(document).ready(function() {
 							image = result['image'];
 							credits = result['credits'];
 							bookUrl = result['bookUrl'];
-							drawCanvas(sentence,title,author,credits,image,removeLoading());
+							drawCanvas(sentence,title,author,credits,image);
 							updateLink(title,bookUrl);
 		        },
 		        error : function () {
@@ -197,11 +197,13 @@ $(document).ready(function() {
 	}
 
 		// draw canvas
-	function drawCanvas(sntc,ttle,athor,crdts,imge,callback){
+
+	function drawCanvas(sntc,ttle,athor,crdts,imge){
 		imageObj.onload = function() {
 			addjustSize(canvas.width,canvas.height,imageObj.width,imageObj.height);
-		   	context.drawImage(imageObj, centerShiftX, centerShiftY, drawingWidth, drawingHeight);
-		   	writeText(sntc,ttle,athor,crdts);
+	   	context.drawImage(imageObj, centerShiftX, centerShiftY, drawingWidth, drawingHeight);
+	   	writeText(sntc,ttle,athor,crdts);
+			removeLoading();
 		};
 		imageObj.onerror = function() {
 			console.log("image error");
