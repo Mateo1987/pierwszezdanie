@@ -21,7 +21,7 @@ $(document).ready(function() {
 	function getBook(){
 		console.log("start");
 		$.ajax({
-		        url : 'http://hadora.pl/pierwszezdanie/get_book.php',
+		        url : 'http://pierwszezdanie.pl/get_book.php',
 		        type : 'POST',
 		        dataType : 'json',
 		        success : function (result) {
