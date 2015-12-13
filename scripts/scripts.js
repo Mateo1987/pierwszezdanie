@@ -31,7 +31,7 @@ $(document).ready(function() {
 							image = result['image'];
 							credits = result['credits'];
 							bookUrl = result['bookUrl'];
-							drawCanvas(sentence,title,author,credits,image);
+							drawCanvas(sentence,title,author,credits,image,removeLoading());
 							updateLink(title,bookUrl);
 		        },
 		        error : function () {
@@ -40,6 +40,11 @@ $(document).ready(function() {
 		    })
 	}
 
+	function removeLoading(){
+		$('.behind-canvas').addClass('hidden');
+	}
+
+	// update links to book
 	function updateLink(ttle,lnk){
 		$(".more a").each(function(){
 			$(this).attr('href',lnk);
@@ -48,9 +53,7 @@ $(document).ready(function() {
 		$('.more-text').text(ttle+" - pobierz za darmo na wolnelektury.pl");
 	}
 
-
-	// base font size + calculating smaller on smaller screens
-
+	// calculate line height and font size depending on screen size and sentence length
 	function calculateFonts(){
 		var cnvsFntSze = 40;
 		if (canvas.height < 720) {
@@ -77,7 +80,7 @@ $(document).ready(function() {
 	}
 
 
-	// sent lineheight for book and image credits on smaller screens
+	// set lineheight for book and image credits on smaller screens
 	function lineHeight(){
 		if ($("canvas").width() < 600) {
 			return 3;
@@ -194,7 +197,7 @@ $(document).ready(function() {
 	}
 
 		// draw canvas
-	function drawCanvas(sntc,ttle,athor,crdts,imge){
+	function drawCanvas(sntc,ttle,athor,crdts,imge,callback){
 		imageObj.onload = function() {
 			addjustSize(canvas.width,canvas.height,imageObj.width,imageObj.height);
 		   	context.drawImage(imageObj, centerShiftX, centerShiftY, drawingWidth, drawingHeight);
@@ -211,6 +214,7 @@ $(document).ready(function() {
 		context.lineWidth = 1;
 		context.strokeStyle = "black";
 		context.fillStyle = 'white';
+
 	}
 
 	// clear canvas
@@ -224,7 +228,7 @@ $(document).ready(function() {
 
 	// refresh button
 	$('.refresh').click(function(){
-
+		$('.behind-canvas').removeClass('hidden');
 		getBook();
 	});
 
