@@ -5,7 +5,7 @@
   <title>Pierwsze zdanie losowej powieśi z wolnych lektur - beta</title>
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/style.css">
-  <script async src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script async src="bower_components/canvas-text-wrapper/canvas-text-wrapper.js"></script>
   <script async type="text/javascript" src="scripts/scripts.js"></script>
 </head>
