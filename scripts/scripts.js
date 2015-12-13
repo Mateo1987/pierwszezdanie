@@ -2,58 +2,111 @@
 var myVars = {};
 $(document).ready(function() {
 
+	var sentence = '';
+	var title = '';
+	var author = '';
+	var image = '';
+	var credits = '';
+
 	var textBlock = 0;
     // variables for drawing canvas
-	var book_credits = title + ", "+author;
-	var image_credits = credits[0];
 	var canvas = document.getElementById("main-canvas");
 	var imageObj = new Image();
-	var finalSentence = '';
 	var us = "pierwszezdanie.pl";
-	var mainLineHeight = 1.5;
-	var smallLineHeight = 1.5;
+
 	// for mobile menu manipulations
 	myVars.extendedOptionsHidden = true;
-	console.log(sentence);
-	console.log(credits[0]);
-	console.log(image);
 
-	// change two short dashes to one
-	var dash = function(sntc){
-		finalSentence = sntc.replace(/---/g,"-");
+	// make ajax call for new book data and draw canvas on success
+	function getBook(){
+		console.log("start");
+		$.ajax({
+		        url : 'http://hadora.pl/pierwszezdanie/get_book.php',
+		        type : 'POST',
+		        dataType : 'json',
+		        success : function (result) {
+							sentence = result['sentence'];
+							title = result['title'];
+							author = result['author'];
+							image = result['image'];
+							credits = result['credits'];
+							bookUrl = result['bookUrl'];
+							drawCanvas(sentence,title,author,credits,image);
+							updateLink(title,bookUrl);
+		        },
+		        error : function () {
+		           console.log("error");
+		        }
+		    })
 	}
-	dash(sentence);
 
-	// base font size + calculating smaller on smaller screens
-	var canvasFontSize = 40;
-	var strokeText = true;
-	if (canvas.height < 720) {
-		var fontRatio = $("canvas").height()/720;
-		canvasFontSize = Math.floor(canvasFontSize * fontRatio);
-		strokeText = false;
-		mainLineHeight = 1.5;
+	function removeLoading(){
+		$('.behind-canvas').addClass('hidden');
 	}
-	if (sentence.length > 130 && $("canvas").width() < 900) {
-		canvasFontSize = canvasFontSize*0.8;
-		mainLineHeight = 4;
-	}
-	else if (sentence.length > 200 && $("canvas").width() < 900){
-		canvasFontSize = canvasFontSize*0.6;
-		mainLineHeight = 5;
-	}
-	else if (sentence.length > 400 && $("canvas").width() < 900) {
-		canvasFontSize = canvasFontSize*0.2;
-		mainLineHeight = 6;
-	}
-	console.log(canvasFontSize);
 
-	// sent lineheight for book and image credits on smaller screens
-	if ($("canvas").width() < 600) {
-		smallLineHeight = 3;
+	// update links to book
+	function updateLink(ttle,lnk){
+		$(".more a").each(function(){
+			$(this).attr('href',lnk);
+		});
+		$('.more span').text(ttle+" - pobierz za darmo na wolnelektury.pl");
+		$('.more-text').text(ttle+" - pobierz za darmo na wolnelektury.pl");
 	}
+
+	// calculate line height and font size depending on screen size and sentence length
+	function calculateFonts(){
+		var cnvsFntSze = 40;
+		if (canvas.height < 720 && canvas.width > canvas.height) {
+			var fontRatio = $("canvas").height()/720;
+			cnvsFntSze = Math.floor(cnvsFntSze * fontRatio);
+			strokeText = false;
+			return [1.5, cnvsFntSze];
+		}
+		else if (canvas.width < 400 && canvas.width < canvas.height) {
+			var fontRatio = $("canvas").width()/720;
+			cnvsFntSze = Math.floor(cnvsFntSze * fontRatio);
+			strokeText = false;
+			return [1.5, cnvsFntSze];
+		}
+		if (sentence.length > 130 && $("canvas").width() < 900) {
+			cnvsFntSze = cnvsFntSze*0.8;
+			return [4, cnvsFntSze];
+		}
+		else if (sentence.length > 200 && $("canvas").width() < 900){
+			cnvsFntSze = cnvsFntSze*0.6;
+			return [5, cnvsFntSze];
+		}
+		else if (sentence.length > 400 && $("canvas").width() < 900) {
+			cnvsFntSze = cnvsFntSze*0.2;
+			return [6, cnvsFntSze];
+		}
+		else {
+			return [1.5, cnvsFntSze];
+		}
+	}
+
+
+	// set lineheight for book and image credits on smaller screens
+	function lineHeight(){
+		if ($("canvas").width() < 600) {
+			return 3;
+		}
+		else {
+			return 1.5;
+		}
+	}
+
 
 	//text to be written on canvas
-	function writeText(){
+	function writeText(sntc,ttle,athor,crdts){
+		var canvasFontSize = calculateFonts()[1];
+		var strokeText = true;
+		var mainLineHeight = calculateFonts()[0];
+		var smallLineHeight = lineHeight();
+		var book_credits = ttle + ", "+athor;
+		var image_credits = crdts[0];
+		// replace two dashes with one
+		var finalSentence = sntc.replace(/---/g,"-");
 		CanvasTextWrapper(canvas, finalSentence,{
 			textAlign: "center",
 			font: "bold "+canvasFontSize+"px Lato",
@@ -66,7 +119,7 @@ $(document).ready(function() {
 
 		// set textBlock variable to text height from CanvasTextWrapper textBlockHeight
 		// If we give parameter "no", there will be no background (for the white version)
-		if (arguments[0] != 'no'){
+		if (arguments[4] != 'no'){
 			textBlock = textBlockHeight;
 			drawMainBackground();
 			context.fillStyle = 'white';
@@ -84,8 +137,9 @@ $(document).ready(function() {
 		}
 
 		// no grey background if we have "no" parameter (for white version of canvas)
-		if (arguments[0] != 'no'){
-			drawLowerBackground();
+		if (arguments[4] != 'no'){
+			console.log(arguments[0]);
+			drawLowerBackground(canvasFontSize);
 			context.fillStyle = 'white';
 		}
 		CanvasTextWrapper(canvas, book_credits,{
@@ -131,11 +185,11 @@ $(document).ready(function() {
 	}
 
 	// background for the texts on the bottom of the canvas
-	function drawLowerBackground(){
+	function drawLowerBackground(fntSize){
 		context.beginPath();
 		// height of the grey background calculated from the canvasFontSize variable
 		// 100 px when there is full height
-      	context.rect(0, (canvas.height-(canvasFontSize*2.5)), canvas.width, (canvasFontSize*2.5));
+      	context.rect(0, (canvas.height-(fntSize*2.5)), canvas.width, (fntSize*2.5));
       	context.fillStyle = 'rgba(0,0,0,0.5)';
       	context.fill();
 	}
@@ -149,45 +203,62 @@ $(document).ready(function() {
 	}
 
 		// draw canvas
-	imageObj.onload = function() {
-		addjustSize(canvas.width,canvas.height,imageObj.width,imageObj.height);
+
+	function drawCanvas(sntc,ttle,athor,crdts,imge){
+		imageObj.onload = function() {
+			addjustSize(canvas.width,canvas.height,imageObj.width,imageObj.height);
 	   	context.drawImage(imageObj, centerShiftX, centerShiftY, drawingWidth, drawingHeight);
-	   	writeText();
-	};
-	imageObj.onerror = function() {
-		console.log("image error");
+	   	writeText(sntc,ttle,athor,crdts);
+			removeLoading();
+		};
+		imageObj.onerror = function() {
+			console.log("image error");
+		}
+
+		imageObj.src = imge;
+		canvas.width = $("canvas").width();
+		canvas.height = $("canvas").height();
+		context = canvas.getContext("2d");
+		context.lineWidth = 1;
+		context.strokeStyle = "black";
+		context.fillStyle = 'white';
+
 	}
 
-	imageObj.src = image;
-	canvas.width = $("canvas").width();
-	canvas.height = $("canvas").height();
-	context = canvas.getContext("2d");
-	context.lineWidth = 1;
-	context.strokeStyle = "black";
-	context.fillStyle = 'white';
+	// clear canvas
+	function clearCanvas(){
+		context.clearRect(0, 0, canvas.width, canvas.height);
+		canvas.width = $("canvas").width();
+		canvas.height = $("canvas").height();
+		context = canvas.getContext("2d");
+	}
+
 
 	// refresh button
 	$('.refresh').click(function(){
-		location.reload();
+		$('.behind-canvas').removeClass('hidden');
+		getBook();
 	});
+
+
 
 	// change background of the canvaas
 	$('.white div').click(function(){
 		context.fillStyle = "white";
 		context.fillRect(0, 0, canvas.width, canvas.height);
 		context.fillStyle = "black";
-		writeText('no');
+		writeText(sentence,title,author,credits,'no');
 	})
 	$('.black div').click(function(){
 		context.fillStyle = "black";
 		context.fillRect(0, 0, canvas.width, canvas.height);
 		context.fillStyle = "white";
-		writeText();
+		writeText(sentence,title,author,credits);
 	})
 	$('.picture div').click(function(){
 		context.drawImage(imageObj, centerShiftX, centerShiftY, drawingWidth, drawingHeight);
 		context.fillStyle = "white";
-		writeText();
+		writeText(sentence,title,author,credits);
 	})
 
 	// mobile menu showing and hiding
@@ -212,5 +283,6 @@ $(document).ready(function() {
 		myVars.extendedOptionsHidden = !myVars.extendedOptionsHidden;
 	});
 
+	getBook();
 
 });
