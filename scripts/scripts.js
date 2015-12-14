@@ -145,7 +145,7 @@ $(document).ready(function() {
 		}
 		CanvasTextWrapper(canvas, book_credits,{
 			textAlign: "left",
-			font: "italic "+(canvasFontSize/2)+"px Lato",
+			font: "italic "+(canvasFontSize*0.6)+"px Lato",
 			lineHeight: smallLineHeight,
 			verticalAlign: "bottom",
 			paddingX: canvasFontSize,
@@ -153,7 +153,7 @@ $(document).ready(function() {
 		});
 		CanvasTextWrapper(canvas, image_credits,{
 			textAlign: "left",
-			font: "italic "+(canvasFontSize*0.375)+"px Lato",
+			font: "italic "+(canvasFontSize*0.45)+"px Lato",
 			lineHeight: 1.5,
 			verticalAlign: "bottom",
 			paddingX: canvasFontSize,
@@ -161,7 +161,7 @@ $(document).ready(function() {
 		});
 		CanvasTextWrapper(canvas, us,{
 			textAlign: "right",
-			font: "italic "+(canvasFontSize*0.375)+"px Lato",
+			font: "italic "+(canvasFontSize*0.45)+"px Lato",
 			lineHeight: 1.5,
 			verticalAlign: "bottom",
 			paddingX: canvasFontSize,
