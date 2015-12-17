@@ -19,14 +19,15 @@
       </div>
       <div class="more icon">
         <a href="" target="_blank">
-        <img src="img/books.png" width="32" height="32">
-        <span></span>
+          <img src="img/books.png" width="32" height="32">
+          <span></span>
         </a>
       </div>
       <div class="github icon">
-      <a href = "https://github.com/halas/pierwszezdanie"  target="_blank">
-      <img src="img/GitHub-Mark-32px.png" height="32" width='32'/>
-      <span>Znajdź projekt na Github</span></a>
+        <a href = "https://github.com/halas/pierwszezdanie"  target="_blank">
+          <img src="img/GitHub-Mark-32px.png" height="32" width='32'/>
+          <span>Znajdź projekt na Github</span>
+        </a>
       </div>
     </div>
     <div class="options-extended hidden">
@@ -46,12 +47,12 @@
     <canvas class='canvas' id="main-canvas">
     </canvas>
     <div class='behind-canvas'>
-    <span>Czekaj, trwa ładowanie pierwszego zdania</span>
-    <div class="spinner">
-      <div class="bounce1"></div>
-      <div class="bounce2"></div>
-      <div class="bounce3"></div>
-    </div>
+      <span>Czekaj, trwa ładowanie pierwszego zdania</span>
+      <div class="spinner">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+      </div>
     </div>
   </div>
   <div class = "options">
@@ -65,19 +66,20 @@
     </div>
     <div class="more icon">
       <a href="" target="_blank">
-      <img src="img/books.png" width="32" height="32">
-      <span class ="more-text"></span>
+        <img src="img/books.png" width="32" height="32">
+        <span class ="more-text"></span>
       </a>
     </div>
   </div>
 </section>
-
 <div class="below-canvas">
 	<img class="refresh icon" src = "img/refresh-86.png" height="64" width="64" />
-	</div>
+</div>
 <footer>
-<a href = "https://github.com/halas/pierwszezdanie"><span>Znajdź projekt na</span>
-<img src="img/GitHub-Mark-Light-32px.png" height="32" width="32"></a>
+<a href = "https://github.com/halas/pierwszezdanie">
+  <span>Znajdź projekt na</span>
+  <img src="img/GitHub-Mark-Light-32px.png" height="32" width="32">
+</a>
 </footer>
 
 <!-- Google Analytics -->

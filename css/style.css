@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:400,900&subset=latin,latin-ext);
 }
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 .hidden{
   display:none;
@@ -327,8 +327,8 @@ footer a:hover img {
 /*mediaquery*/
 @media (max-width: 1200px) {
 	.canvas {
-	width: 900px;
-	height: 540px;
+  	width: 900px;
+  	height: 540px;
 	}
   .canvas-section {
     width: 950px;
@@ -340,8 +340,8 @@ footer a:hover img {
 }
 @media (max-width: 962px) and (orientation: landscape) {
 	.canvas {
-	width: 700px;
-	height: 420px;
+  	width: 700px;
+  	height: 420px;
 	}
   .canvas-section {
     width: 750px;
@@ -357,8 +357,8 @@ footer a:hover img {
 }
 @media (max-width: 962px) and (orientation: portrait) {
 	.canvas {
-	width: 700px;
-	height: 1126px;
+  	width: 700px;
+  	height: 1126px;
 	}
   .canvas-section {
     width: 750px;
@@ -375,8 +375,8 @@ footer a:hover img {
 @media (max-width: 768px) and (orientation: landscape){
   .canvas-section,
   .canvas {
-	width: 600px;
-	height: 360px;
+  	width: 600px;
+  	height: 360px;
 	}
   .below-canvas {
     width: 500px;
@@ -394,8 +394,8 @@ footer a:hover img {
 @media (max-width: 768px) and (orientation: portrait){
   .canvas-section,
   .canvas {
-	width: 600px;
-	height: 996px;
+  	width: 600px;
+  	height: 996px;
 	}
   .below-canvas {
     width: 500px;
@@ -418,8 +418,8 @@ footer a:hover img {
 @media (max-width: 600px) and (orientation: landscape){
   .canvas-section,
   .canvas {
-	width: 500px;
-	height: 288px;
+  	width: 500px;
+  	height: 288px;
 	}
   .below-canvas {
     width: 450px;
@@ -429,8 +429,8 @@ footer a:hover img {
 @media (max-width: 600px) and (orientation: portrait){
   .canvas-section,
   .canvas {
-	width: 500px;
-	height: 830px;
+  	width: 500px;
+  	height: 830px;
 	}
   .below-canvas {
     width: 450px;
@@ -440,8 +440,8 @@ footer a:hover img {
 @media (max-width: 500px) and (orientation: landscape){
   .canvas-section,
   .canvas {
-	width: 400px;
-	height: 240px;
+  	width: 400px;
+  	height: 240px;
 	}
   .below-canvas {
     width: 350px;
@@ -451,8 +451,8 @@ footer a:hover img {
 @media (max-width: 500px) and (orientation: portrait){
   .canvas-section,
   .canvas {
-	width: 400px;
-	height: 664px;
+  	width: 400px;
+  	height: 664px;
 	}
   .below-canvas {
     width: 350px;
@@ -462,8 +462,8 @@ footer a:hover img {
 @media (max-width: 400px) and (orientation: landscape){
   .canvas-section,
   .canvas {
-	width: 300px;
-	height: 180px;
+  	width: 300px;
+  	height: 180px;
 	}
   .below-canvas {
     width: 250px;
@@ -473,8 +473,8 @@ footer a:hover img {
 @media (max-width: 400px) and (orientation: portrait){
   .canvas-section,
   .canvas {
-	width: 300px;
-	height: 498px;
+  	width: 300px;
+  	height: 498px;
 	}
   .below-canvas {
     width: 250px;
